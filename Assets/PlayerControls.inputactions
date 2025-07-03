@@ -2,7 +2,7 @@
     "name": "PlayerControls",
     "maps": [
         {
-            "name": "Mouse",
+            "name": "Player",
             "id": "004c849f-bcb1-4ed5-87fb-2b21e03f85c6",
             "actions": [
                 {
