@@ -60,8 +60,9 @@ Material:
     m_Floats:
     - PixelSnap: 0
     - _EnableExternalAlpha: 0
-    - _LaserEdgeSmoothness: 10
-    - _LaserThickness: 30
+    - _LaserEdgeSmoothness: 8.9
+    - _LaserScale: 3
+    - _LaserThickness: 11.59
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
