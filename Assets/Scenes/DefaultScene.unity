@@ -374,7 +374,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 11b541e0ab2087548ae631c8a94766cf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 324829cd4b8f1a548aa96c8c2abf44ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -517,6 +517,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: eb863254-43f1-474d-8995-1b081873edae
     m_ActionName: Player/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bf91088a-b956-41d6-ade5-948ef9fd3644
+    m_ActionName: Player/Point
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
