@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private Camera cam;
     public LineRenderer lineRenderer;
     public Transform firePoint;
+
+    [Header("Configurable Values")]
+    [SerializeField] private float fireTime;
 
 
     // Start is called before the first frame update
@@ -19,7 +23,7 @@ public class Gun : MonoBehaviour
     void Update()
     {
         if(Input.GetMouseButtonDown(0)) {
-            FireLaser();
+            StartCoroutine(FireLaser());
         }
     }
 
@@ -34,7 +38,9 @@ public class Gun : MonoBehaviour
     }
 
     // toggles on and off laser fast
-    void FireLaser() {
-        
+    IEnumerator FireLaser() {
+        EnableLaser();
+        yield return new WaitForSeconds(fireTime);
+        DisableLaser();
     }
 }

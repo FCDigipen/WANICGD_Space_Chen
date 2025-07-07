@@ -701,6 +701,7 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   lineRenderer: {fileID: 2078335293}
   firePoint: {fileID: 1189232094}
+  fireTime: 0.5
 --- !u!1 &1650612917
 GameObject:
   m_ObjectHideFlags: 0
