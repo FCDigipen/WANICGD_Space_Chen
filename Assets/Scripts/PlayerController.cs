@@ -47,8 +47,8 @@ public class PlayerController : MonoBehaviour
     // rotate player dependent on mousePos. returns direction vector for OnMove
     private Vector2 Rotate(Vector2 mousePos) {
         Vector2 dir = (mousePos - (Vector2) transform.position).normalized;
-        float angle = Vector2.Angle(dir, (Vector2) transform.right); // d(angle)
-        transform.Rotate(Vector3.forward * angle);
+        Quaternion qdir = Quaternion.LookRotation(dir, Vector3.right);
+        transform.rotation = qdir * Quaternion.Euler(0,-90,0);
         return dir;
     }
 }
