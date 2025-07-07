@@ -11,6 +11,7 @@ public class Gun : MonoBehaviour
 
     [Header("Configurable Values")]
     [SerializeField] private float fireTime;
+    [SerializeField] private float fireDistance;
 
 
     // Start is called before the first frame update
@@ -31,8 +32,9 @@ public class Gun : MonoBehaviour
     // enables laser & sets fire end
     void EnableLaser() {
         Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        lineRenderer.SetPosition(1, mousePos);
-        
+        Vector2 direction = (mousePos - (Vector2) firePoint.position).normalized;
+        lineRenderer.SetPosition(1, (Vector2) firePoint.position + direction * fireDistance);
+
         lineRenderer.enabled = true;
     }
 
