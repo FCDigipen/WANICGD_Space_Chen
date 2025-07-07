@@ -18,7 +18,6 @@ public class Gun : MonoBehaviour
 
     private List<ParticleSystem> particles = new List<ParticleSystem>();
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +46,8 @@ public class Gun : MonoBehaviour
         if(hit) {lineRenderer.SetPosition(1, hit.point);}
         else {lineRenderer.SetPosition(1, (Vector2) firePoint.position + direction * fireDistance);}
 
+        endVFX.transform.position = lineRenderer.GetPosition(1);
+
         lineRenderer.enabled = true;
     }
 
@@ -60,6 +61,7 @@ public class Gun : MonoBehaviour
     // updates laser start position
     void UpdateLaser() {
         lineRenderer.SetPosition(0, firePoint.position);
+        startVFX.transform.position = (Vector2) firePoint.position;
     }
 
     // toggles on and off laser fast
