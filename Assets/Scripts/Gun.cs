@@ -9,15 +9,20 @@ public class Gun : MonoBehaviour
     [SerializeField] private Camera cam;
     public LineRenderer lineRenderer;
     public Transform firePoint;
+    [SerializeField] private GameObject startVFX;
+    [SerializeField] private GameObject endVFX;
 
     [Header("Configurable Values")]
     [SerializeField] private float fireTime;
     [SerializeField] private float fireDistance;
 
+    private List<ParticleSystem> particles = new List<ParticleSystem>();
+
 
     // Start is called before the first frame update
     void Start()
     {
+        FillLists();
         DisableLaser();
     }
 
@@ -32,6 +37,8 @@ public class Gun : MonoBehaviour
 
     // enables laser & sets fire end
     void EnableLaser() {
+        for(int i = 0; i < particles.Count; ++i) {particles[i].Play();}
+
         Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = (mousePos - (Vector2) firePoint.position).normalized;
 
@@ -45,6 +52,8 @@ public class Gun : MonoBehaviour
 
     // disables laser
     void DisableLaser() {
+        for(int i = 0; i < particles.Count; ++i) {particles[i].Stop();}
+
         lineRenderer.enabled = false;
     }
 
@@ -59,4 +68,16 @@ public class Gun : MonoBehaviour
         yield return new WaitForSeconds(fireTime);
         DisableLaser();
     }
+
+    void FillLists() {
+        for(int i = 0; i < startVFX.transform.childCount; ++i) {
+            ParticleSystem ps = startVFX.transform.GetChild(i).GetComponent<ParticleSystem>();
+            if(ps) {particles.Add(ps);}
+        }
+        for(int i = 0; i < endVFX.transform.childCount; ++i) {
+            ParticleSystem ps = endVFX.transform.GetChild(i).GetComponent<ParticleSystem>();
+            if(ps) {particles.Add(ps);}
+        }
+    }
+
 }
