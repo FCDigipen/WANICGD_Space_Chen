@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Camera cam;
-    
+
     private Vector2 lastMousePos;
 
     // Start is called before the first frame update
@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // mouse position in world space
-        if(mousePos != lastMousePos) {OnMove(mousePos);}
+        if(mousePos != lastMousePos) {OnMove(mousePos); lastMousePos = mousePos;}
         if(Input.GetMouseButtonDown(0)) {OnClick(mousePos);}
     }
 
