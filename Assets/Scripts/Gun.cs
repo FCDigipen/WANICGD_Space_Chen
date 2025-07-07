@@ -25,12 +25,12 @@ public class Gun : MonoBehaviour
 
     // enables laser
     void EnableLaser() {
-
+        lineRenderer.enabled = true;
     }
 
     // disables laser
     void DisableLaser() {
-
+        lineRenderer.enabled = false;
     }
 
     // toggles on and off laser fast
