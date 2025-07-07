@@ -25,16 +25,25 @@ public class Gun : MonoBehaviour
         if(Input.GetMouseButtonDown(0)) {
             StartCoroutine(FireLaser());
         }
+        UpdateLaser();
     }
 
-    // enables laser
+    // enables laser & sets fire end
     void EnableLaser() {
+        Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        lineRenderer.SetPosition(1, mousePos);
+        
         lineRenderer.enabled = true;
     }
 
     // disables laser
     void DisableLaser() {
         lineRenderer.enabled = false;
+    }
+
+    // updates laser start position
+    void UpdateLaser() {
+        lineRenderer.SetPosition(0, firePoint.position);
     }
 
     // toggles on and off laser fast
