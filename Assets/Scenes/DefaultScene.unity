@@ -377,7 +377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 519420031}
-  recoil: 0
+  recoil: 5
 --- !u!114 &1490075824
 MonoBehaviour:
   m_ObjectHideFlags: 0
