@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,10 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Camera cam;
 
+    [SerializeField] public float recoil;
+
     private Vector2 lastMousePos;
+    private Vector2 playerVelocity;
 
     // Start is called before the first frame update
     void Start()
@@ -22,16 +26,21 @@ public class PlayerController : MonoBehaviour
         if(Input.GetMouseButtonDown(0)) {OnClick(mousePos);}
     }
 
+    // frame-rate independent update function
+    void FixedUpdate()
+    {
+        transform.position += (Vector3) playerVelocity * Time.fixedDeltaTime;
+    }
+
     // called whenever the mouse is clciekd
     void OnClick(Vector2 mousePos) {
-        Debug.Log("Mouse Clicked");
-        Rotate(mousePos);
+        Debug.Log(mousePos);
     }
 
     // called whenever the mouse is moved
     void OnMove(Vector2 mousePos) {
-        Debug.Log("Mouse Moved");
-        Vector2 dir = Rotate(mousePos);
+        Debug.Log(mousePos);
+        Rotate(mousePos);
     }
 
     // rotate player dependent on mousePos. returns direction vector for OnMove
