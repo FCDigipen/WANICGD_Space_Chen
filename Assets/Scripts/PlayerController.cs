@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Camera cam;
 
-    private Vector2 lastMousePos;
 
     // Start is called before the first frame update
     void Start()
