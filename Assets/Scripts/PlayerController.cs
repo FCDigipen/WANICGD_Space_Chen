@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
     // rotate player dependent on mousePos. returns direction vector for OnMove
     private Vector2 Rotate(Vector2 mousePos) {
         Vector2 dir = (mousePos - (Vector2) transform.position).normalized;
-        float angle = Vector2.Angle(dir, new Vector2(1f,0f)); // base angle
+        float angle = Vector2.Angle(dir, (Vector2) transform.right); // base angle
         transform.Rotate(Vector3.forward * angle);
         return dir;
     }
