@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class Gun : MonoBehaviour
 {
@@ -33,7 +34,11 @@ public class Gun : MonoBehaviour
     void EnableLaser() {
         Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = (mousePos - (Vector2) firePoint.position).normalized;
-        lineRenderer.SetPosition(1, (Vector2) firePoint.position + direction * fireDistance);
+
+        RaycastHit2D hit = Physics2D.Raycast((Vector2) firePoint.position + direction * 0.05f, direction, fireDistance); // direction * 0.05f to prevent intersection with its own collider
+
+        if(hit) {lineRenderer.SetPosition(1, hit.point);}
+        else {lineRenderer.SetPosition(1, (Vector2) firePoint.position + direction * fireDistance);}
 
         lineRenderer.enabled = true;
     }
