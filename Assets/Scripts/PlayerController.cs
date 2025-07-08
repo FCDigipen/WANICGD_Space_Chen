@@ -10,13 +10,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Camera cam;
 
     [SerializeField] public float recoil;
-
-    private Vector2 playerVelocity;
+    private Rigidbody2D body;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        body = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -27,16 +26,10 @@ public class PlayerController : MonoBehaviour
         if(Input.GetMouseButtonDown(0)) {OnClick(mousePos);}
     }
 
-    // frame-rate independent update function
-    void FixedUpdate()
-    {
-        transform.position += (Vector3) playerVelocity * Time.fixedDeltaTime;
-    }
-
     // called whenever the mouse is clciekd
     void OnClick(Vector2 mousePos) {
         Vector2 dir = Rotate(mousePos);
-        playerVelocity = -dir * recoil;
+        body.AddForce(-dir * recoil, ForceMode2D.Impulse);
     }
 
     // called whenever the mouse is moved
