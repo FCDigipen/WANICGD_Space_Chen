@@ -6001,7 +6001,7 @@ MonoBehaviour:
   firePoint: {fileID: 1189232094}
   startVFX: {fileID: 1891329080}
   endVFX: {fileID: 352781033}
-  maxBullets: 20
+  maxBullets: 999
   maxCurrBullets: 2
   recoil: 7.5
   fireTime: 0.15

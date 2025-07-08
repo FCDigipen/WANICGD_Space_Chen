@@ -113,10 +113,24 @@ public class Gun : MonoBehaviour
 
     // toggles on and off laser fast
     private IEnumerator FireLaser() {
+        StopCoroutine(StartReload());
+        StopCoroutine(Reload());
         --chamber; UpdateAmmo();
         EnableLaser();
         yield return new WaitForSeconds(fireTime);
         DisableLaser();
+        StartCoroutine(StartReload());
+    }
+
+    private IEnumerator StartReload() {
+        yield return new WaitForSeconds(longReload);
+        StartCoroutine(Reload());
+    }
+
+    private IEnumerator Reload() {
+        if(total > 0) {++chamber; --total; UpdateAmmo();}
+        yield return new WaitForSeconds(shortReload);
+        if(chamber < maxCurrBullets) {StartCoroutine(Reload());}
     }
 
     private void FillLists() {
