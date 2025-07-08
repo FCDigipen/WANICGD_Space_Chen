@@ -5881,6 +5881,7 @@ MonoBehaviour:
   firePoint: {fileID: 1189232094}
   startVFX: {fileID: 1891329080}
   endVFX: {fileID: 352781033}
+  knockback: 10
   fireTime: 0.15
   fireDistance: 100
 --- !u!1001 &1499391801

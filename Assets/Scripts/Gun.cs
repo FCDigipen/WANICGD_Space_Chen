@@ -13,6 +13,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private GameObject endVFX;
 
     [Header("Configurable Values")]
+    [SerializeField] private float knockback;
     [SerializeField] private float fireTime;
     [SerializeField] private float fireDistance;
 
@@ -43,8 +44,13 @@ public class Gun : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast((Vector2) firePoint.position + direction * 0.05f, direction, fireDistance); // direction * 0.05f to prevent intersection with its own collider
 
-        if(hit) {lineRenderer.SetPosition(1, hit.point);}
+        if(hit) {
+            lineRenderer.SetPosition(1, hit.point);
+            // apply knockback to rigid body
+            hit.rigidbody.AddForceAtPosition(direction * knockback, hit.point, ForceMode2D.Impulse);
+        }
         else {lineRenderer.SetPosition(1, (Vector2) firePoint.position + direction * fireDistance);}
+
 
         endVFX.transform.position = lineRenderer.GetPosition(1);
 
