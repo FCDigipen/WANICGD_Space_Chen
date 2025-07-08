@@ -1,8 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -10,12 +5,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Camera cam;
 
     [SerializeField] public float recoil;
-    private Rigidbody2D body;
+    private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        body = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -29,7 +24,7 @@ public class PlayerController : MonoBehaviour
     // called whenever the mouse is clciekd
     void OnClick(Vector2 mousePos) {
         Vector2 dir = Rotate(mousePos);
-        body.velocity = -dir * recoil;
+        rb.velocity = -dir * recoil;
     }
 
     // called whenever the mouse is moved
