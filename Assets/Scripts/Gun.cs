@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.Animations;
 
@@ -12,11 +13,23 @@ public class Gun : MonoBehaviour
     [SerializeField] private GameObject startVFX;
     [SerializeField] private GameObject endVFX;
 
-    [Header("Configurable Values")]
-    [SerializeField] private float knockback;
+    [Header("Gun Values")]
+    [Tooltip("Maximum bullets the player starts off with")]
+    [SerializeField] private int max_bullets;
+    [Tooltip("Maximum bullets the player can have in the chamber")]
+    [SerializeField] private int max_curr_bullets;
+    [Tooltip("How long the laser lasts after firing")]
     [SerializeField] private float fireTime;
+    [Tooltip("Laser length (visual and actual)")]
     [SerializeField] private float fireDistance;
-
+    [Tooltip("Knockback force experienced by objects")]
+    [SerializeField] private float knockback;
+    [Tooltip("Minimum delay between successive shots (not including fireTime)")]
+    [SerializeField] private float shotDelay;
+    [Tooltip("Delay before reloading STARTS")]
+    [SerializeField] private float longReload;
+    [Tooltip("Delay between consecutive reloads after reloading begins")]
+    [SerializeField] private float shortReload;
     private List<ParticleSystem> particles = new List<ParticleSystem>();
 
     // Start is called before the first frame update
