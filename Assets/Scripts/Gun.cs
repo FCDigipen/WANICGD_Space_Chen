@@ -47,6 +47,8 @@ public class Gun : MonoBehaviour
         if(hit) {
             lineRenderer.SetPosition(1, hit.point);
             // apply knockback to rigid body
+            // funny enough, this knock back can actually apply to the player LOL
+            // i'm keeping it :)
             hit.rigidbody.AddForceAtPosition(direction * knockback, hit.point, ForceMode2D.Impulse);
         }
         else {lineRenderer.SetPosition(1, (Vector2) firePoint.position + direction * fireDistance);}
