@@ -6011,6 +6011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 519420031}
+  ammoText: {fileID: 1271586608}
   lineRenderer: {fileID: 2078335293}
   firePoint: {fileID: 1189232094}
   startVFX: {fileID: 1891329080}

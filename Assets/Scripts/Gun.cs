@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.Animations;
@@ -8,6 +9,7 @@ public class Gun : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Camera cam;
+    [SerializeField] private TextMeshProUGUI ammoText;
     public LineRenderer lineRenderer;
     public Transform firePoint;
     [SerializeField] private GameObject startVFX;
@@ -39,6 +41,8 @@ public class Gun : MonoBehaviour
     void Start()
     {
         total = maxBullets;
+        chamber = maxCurrBullets; maxBullets -= maxCurrBullets;
+        UpdateAmmo();
         FillLists();
         DisableLaser();
     }
@@ -89,8 +93,14 @@ public class Gun : MonoBehaviour
         startVFX.transform.position = (Vector2) firePoint.position;
     }
 
+    // updates ammo text
+    private void UpdateAmmo() {
+        ammoText.text = $"{chamber} | {total}";
+    }
+
     // toggles on and off laser fast
     private IEnumerator FireLaser() {
+        --chamber; UpdateAmmo();
         EnableLaser();
         yield return new WaitForSeconds(fireTime);
         DisableLaser();
