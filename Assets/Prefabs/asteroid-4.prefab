@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4247218614306879813}
   - component: {fileID: 4798185457893859109}
   m_Layer: 0
-  m_Name: asteroid-2
+  m_Name: asteroid-4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8a14d21049892a841a4051f2425cafdc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eb5fb3d9b0af13147a9089860de0be41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -94,7 +94,7 @@ EdgeCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8258570572527083925}
   m_Enabled: 1
-  m_Density: 11
+  m_Density: 16
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -121,18 +121,19 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 0.03472197, y: 0.113990776}
-  - {x: -0.013299741, y: 0.07496625}
-  - {x: -0.07661098, y: -0.020225855}
-  - {x: -0.08446589, y: -0.07008829}
-  - {x: -0.044085596, y: -0.10425349}
-  - {x: 0.016614065, y: -0.09505459}
-  - {x: 0.049382854, y: -0.06692143}
-  - {x: 0.08842572, y: -0.04202184}
-  - {x: 0.12300749, y: 0.012745939}
-  - {x: 0.124710545, y: 0.1155546}
-  - {x: 0.11263353, y: 0.14698553}
-  - {x: 0.033908583, y: 0.11451328}
+  - {x: -0.065253675, y: -0.017729104}
+  - {x: -0.06429553, y: -0.12195481}
+  - {x: 0.02061445, y: -0.116577126}
+  - {x: 0.053795755, y: -0.09802842}
+  - {x: 0.046387836, y: -0.057923216}
+  - {x: 0.13815035, y: -0.013898224}
+  - {x: 0.1153084, y: 0.08684957}
+  - {x: 0.01749517, y: 0.06603939}
+  - {x: 0.0029219012, y: 0.11696709}
+  - {x: -0.095496505, y: 0.11698619}
+  - {x: -0.12673287, y: 0.08560699}
+  - {x: -0.12545791, y: 0.018664721}
+  - {x: -0.06808498, y: -0.01689836}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
