@@ -6002,12 +6002,11 @@ MonoBehaviour:
   startVFX: {fileID: 1891329080}
   endVFX: {fileID: 352781033}
   maxBullets: 999
-  maxCurrBullets: 2
+  maxChamber: 4
   recoil: 7.5
   fireTime: 0.15
   fireDistance: 100
   knockback: 10
-  shotDelay: 0.05
   longReload: 0.5
   shortReload: 0.2
 --- !u!1001 &1499391801

@@ -41,7 +41,7 @@ public class Gun : MonoBehaviour
     void Start()
     {
         total = maxBullets;
-        chamber = maxChamber; maxBullets -= maxChamber;
+        chamber = maxChamber; total -= maxChamber;
         rb = GetComponent<Rigidbody2D>();
         UpdateAmmo();
         FillLists();
@@ -111,24 +111,10 @@ public class Gun : MonoBehaviour
 
     // toggles on and off laser fast
     private IEnumerator FireLaser() {
-        StopCoroutine(StartReload());
-        StopCoroutine(Reload());
         --chamber; UpdateAmmo();
         EnableLaser();
         yield return new WaitForSeconds(fireTime);
         DisableLaser();
-        StartCoroutine(StartReload());
-    }
-
-    private IEnumerator StartReload() {
-        yield return new WaitForSeconds(longReload);
-        StartCoroutine(Reload());
-    }
-
-    private IEnumerator Reload() {
-        if(total > 0) {++chamber; --total; UpdateAmmo();}
-        yield return new WaitForSeconds(shortReload);
-        if(chamber < maxChamber) {StartCoroutine(Reload());}
     }
 
     private void FillLists() {
