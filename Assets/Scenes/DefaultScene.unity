@@ -5881,9 +5881,14 @@ MonoBehaviour:
   firePoint: {fileID: 1189232094}
   startVFX: {fileID: 1891329080}
   endVFX: {fileID: 352781033}
-  knockback: 10
+  maxBullets: 20
+  maxCurrBullets: 2
   fireTime: 0.15
   fireDistance: 100
+  knockback: 10
+  shotDelay: 0.05
+  longReload: 0.5
+  shortReload: 0.2
 --- !u!1001 &1499391801
 PrefabInstance:
   m_ObjectHideFlags: 0
