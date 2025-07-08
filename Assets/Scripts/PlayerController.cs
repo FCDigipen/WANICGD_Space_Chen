@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     // called whenever the mouse is clciekd
     void OnClick(Vector2 mousePos) {
         Vector2 dir = Rotate(mousePos);
-        body.AddForce(-dir * recoil, ForceMode2D.Impulse);
+        body.velocity = -dir * recoil;
     }
 
     // called whenever the mouse is moved
