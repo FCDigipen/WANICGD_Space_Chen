@@ -19,7 +19,7 @@ public class Gun : MonoBehaviour
     [Tooltip("Maximum bullets the player starts off with")]
     [SerializeField] private int maxBullets;
     [Tooltip("Maximum bullets the player can have in the chamber")]
-    [SerializeField] private int maxCurrBullets;
+    [SerializeField] private int maxChamber;
     [SerializeField] public float recoil;
     [Tooltip("How long the laser lasts after firing")]
     [SerializeField] private float fireTime;
@@ -41,7 +41,7 @@ public class Gun : MonoBehaviour
     void Start()
     {
         total = maxBullets;
-        chamber = maxCurrBullets; maxBullets -= maxCurrBullets;
+        chamber = maxChamber; maxBullets -= maxChamber;
         rb = GetComponent<Rigidbody2D>();
         UpdateAmmo();
         FillLists();
@@ -128,7 +128,7 @@ public class Gun : MonoBehaviour
     private IEnumerator Reload() {
         if(total > 0) {++chamber; --total; UpdateAmmo();}
         yield return new WaitForSeconds(shortReload);
-        if(chamber < maxCurrBullets) {StartCoroutine(Reload());}
+        if(chamber < maxChamber) {StartCoroutine(Reload());}
     }
 
     private void FillLists() {
