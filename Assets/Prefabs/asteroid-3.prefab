@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2623292047787734542}
   - component: {fileID: 7657142226421367453}
-  - component: {fileID: 4247218614306879813}
+  - component: {fileID: 539775740395551625}
   - component: {fileID: 4798185457893859109}
   m_Layer: 0
   m_Name: asteroid-3
@@ -86,15 +86,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!68 &4247218614306879813
-EdgeCollider2D:
+--- !u!60 &539775740395551625
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8258570572527083925}
   m_Enabled: 1
-  m_Density: 16
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -119,29 +119,35 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   m_Points:
-  - {x: -0.098402485, y: -0.060962703}
-  - {x: -0.07895751, y: -0.12265211}
-  - {x: 0.03463895, y: -0.116577126}
-  - {x: 0.12710562, y: -0.07850359}
-  - {x: 0.124797545, y: 0.057133816}
-  - {x: 0.12285091, y: 0.08930443}
-  - {x: 0.107658625, y: 0.11753145}
-  - {x: 0.07678054, y: 0.11485149}
-  - {x: 0.044357948, y: 0.13649191}
-  - {x: -0.026011482, y: 0.13302444}
-  - {x: -0.10432398, y: 0.058911085}
-  - {x: -0.10608382, y: 0.035810858}
-  - {x: -0.08320601, y: 0.007898048}
-  - {x: -0.02953117, y: 0.005973001}
-  - {x: 0.0065453714, y: -0.017127238}
-  - {x: -0.004893528, y: -0.04985265}
-  - {x: -0.09728466, y: -0.0633278}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
+    m_Paths:
+    - - {x: -0.098402485, y: -0.060962703}
+      - {x: -0.07895751, y: -0.12265211}
+      - {x: 0.03463895, y: -0.116577126}
+      - {x: 0.12710562, y: -0.07850359}
+      - {x: 0.124797545, y: 0.057133816}
+      - {x: 0.12285091, y: 0.08930443}
+      - {x: 0.107658625, y: 0.11753145}
+      - {x: 0.07678054, y: 0.11485149}
+      - {x: 0.044357948, y: 0.13649191}
+      - {x: -0.026011482, y: 0.13302444}
+      - {x: -0.10432398, y: 0.058911085}
+      - {x: -0.10608382, y: 0.035810858}
+      - {x: -0.08320601, y: 0.007898048}
+      - {x: -0.02953117, y: 0.005973001}
+      - {x: 0.0065453714, y: -0.017127238}
+      - {x: -0.004893528, y: -0.04985265}
+      - {x: -0.09728466, y: -0.0633278}
+  m_UseDelaunayMesh: 0
 --- !u!50 &4798185457893859109
 Rigidbody2D:
   serializedVersion: 4
