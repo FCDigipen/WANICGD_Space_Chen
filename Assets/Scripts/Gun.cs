@@ -30,11 +30,15 @@ public class Gun : MonoBehaviour
     [SerializeField] private float longReload;
     [Tooltip("Delay between consecutive reloads after reloading begins")]
     [SerializeField] private float shortReload;
+
     private List<ParticleSystem> particles = new List<ParticleSystem>();
+    private int chamber; // bullets in the chamber
+    private int total; // total bullets remaining
 
     // Start is called before the first frame update
     void Start()
     {
+        total = maxBullets;
         FillLists();
         DisableLaser();
     }
@@ -49,7 +53,7 @@ public class Gun : MonoBehaviour
     }
 
     // enables laser & sets fire end
-    void EnableLaser() {
+    private void EnableLaser() {
         for(int i = 0; i < particles.Count; ++i) {particles[i].Play();}
 
         Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -73,26 +77,26 @@ public class Gun : MonoBehaviour
     }
 
     // disables laser
-    void DisableLaser() {
+    private void DisableLaser() {
         for(int i = 0; i < particles.Count; ++i) {particles[i].Stop();}
 
         lineRenderer.enabled = false;
     }
 
     // updates laser start position
-    void UpdateLaser() {
+    private void UpdateLaser() {
         lineRenderer.SetPosition(0, firePoint.position);
         startVFX.transform.position = (Vector2) firePoint.position;
     }
 
     // toggles on and off laser fast
-    IEnumerator FireLaser() {
+    private IEnumerator FireLaser() {
         EnableLaser();
         yield return new WaitForSeconds(fireTime);
         DisableLaser();
     }
 
-    void FillLists() {
+    private void FillLists() {
         for(int i = 0; i < startVFX.transform.childCount; ++i) {
             ParticleSystem ps = startVFX.transform.GetChild(i).GetComponent<ParticleSystem>();
             if(ps) {particles.Add(ps);}
@@ -102,5 +106,6 @@ public class Gun : MonoBehaviour
             if(ps) {particles.Add(ps);}
         }
     }
+
 
 }
