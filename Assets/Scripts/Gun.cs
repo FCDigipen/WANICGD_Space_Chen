@@ -15,9 +15,9 @@ public class Gun : MonoBehaviour
 
     [Header("Gun Values")]
     [Tooltip("Maximum bullets the player starts off with")]
-    [SerializeField] private int max_bullets;
+    [SerializeField] private int maxBullets;
     [Tooltip("Maximum bullets the player can have in the chamber")]
-    [SerializeField] private int max_curr_bullets;
+    [SerializeField] private int maxCurrBullets;
     [Tooltip("How long the laser lasts after firing")]
     [SerializeField] private float fireTime;
     [Tooltip("Laser length (visual and actual)")]
