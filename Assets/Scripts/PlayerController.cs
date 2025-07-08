@@ -27,8 +27,6 @@ public class Gun : MonoBehaviour
     [SerializeField] private float fireDistance;
     [Tooltip("Knockback force experienced by objects")]
     [SerializeField] private float knockback;
-    [Tooltip("Minimum delay between successive shots (not including fireTime)")]
-    [SerializeField] private float shotDelay;
     [Tooltip("Delay before reloading STARTS")]
     [SerializeField] private float longReload;
     [Tooltip("Delay between consecutive reloads after reloading begins")]
