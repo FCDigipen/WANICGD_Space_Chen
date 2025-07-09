@@ -31,6 +31,8 @@ public class EnemyController : MonoBehaviour
             if(ps) {startParticles.Add(ps);}
         }
 
+        DisableLaser();
+
         StartCoroutine(FireLaser());
     }
 
