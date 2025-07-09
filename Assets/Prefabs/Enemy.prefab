@@ -5104,6 +5104,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   explosionVFX: {fileID: 601211299680821539}
+  rotateTime: 0.2
+  randomRotateTime: 0.1
 --- !u!1 &5008572560854690316
 GameObject:
   m_ObjectHideFlags: 0
