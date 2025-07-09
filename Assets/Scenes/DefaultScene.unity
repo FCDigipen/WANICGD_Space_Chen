@@ -612,7 +612,7 @@ ParticleSystem:
   m_GameObject: {fileID: 427499510}
   serializedVersion: 8
   lengthInSec: 100
-  simulationSpeed: 100
+  simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -686,8 +686,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 100
-      minScalar: 20
+      scalar: 1
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2647,7 +2647,7 @@ ParticleSystem:
         m_RotationOrder: 4
     inWorldSpace: 0
   InheritVelocityModule:
-    enabled: 1
+    enabled: 0
     m_Mode: 0
     m_Curve:
       serializedVersion: 2
@@ -11659,7 +11659,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4172927164779238163, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
-      insertIndex: 0
+      insertIndex: -1
       addedObject: {fileID: 427499511}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
