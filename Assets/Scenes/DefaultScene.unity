@@ -5792,7 +5792,7 @@ GameObject:
   - component: {fileID: 1490075820}
   - component: {fileID: 1490075819}
   - component: {fileID: 1490075821}
-  - component: {fileID: 1490075822}
+  - component: {fileID: 1490075826}
   - component: {fileID: 1490075824}
   - component: {fileID: 1490075825}
   m_Layer: 0
@@ -5898,41 +5898,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &1490075822
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1490075818}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.16
 --- !u!114 &1490075824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6008,6 +5973,58 @@ MonoBehaviour:
   fireDistance: 100
   knockback: 10
   reloadTime: 2
+--- !u!68 &1490075826
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490075818}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.061201558, y: 0.04044082}
+  - {x: -0.048441485, y: 0.060917158}
+  - {x: 0.007963009, y: 0.06091717}
+  - {x: 0.021272682, y: 0.041464638}
+  - {x: 0.12979737, y: 0.04044084}
+  - {x: 0.13082117, y: 0.01842872}
+  - {x: 0.032022733, y: 0.01894065}
+  - {x: -0.010465715, y: -0.019964457}
+  - {x: -0.049882703, y: -0.020476356}
+  - {x: -0.04937072, y: 0.009214349}
+  - {x: -0.1399786, y: -0.011773925}
+  - {x: -0.13997857, y: 0.040440805}
+  - {x: -0.06268032, y: 0.04095271}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1001 &1499391801
 PrefabInstance:
   m_ObjectHideFlags: 0
