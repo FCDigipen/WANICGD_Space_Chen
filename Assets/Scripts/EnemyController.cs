@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float laserDistance;
     private GameObject player;
     private List<ParticleSystem> startParticles = new List<ParticleSystem>();
+    private bool canRotate = true;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +40,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Rotate(player.transform.position);
+        if(canRotate) {Rotate(player.transform.position);}
 
         // update laser locations
         lineRenderer.SetPosition(0, firePoint.position);
@@ -73,6 +74,8 @@ public class EnemyController : MonoBehaviour
         for(int i = 0; i < startParticles.Count; ++i) {startParticles[i].Play();}
         Vector2 direction = (player.transform.position - firePoint.position).normalized; // snap to location
 
+        canRotate = false;
+
         yield return new WaitForSeconds(snapDelay);
         RaycastHit2D hit = Physics2D.Raycast((Vector2) firePoint.position + direction * 0.05f, direction, laserDistance); // direction * 0.05f to prevent intersection with its own collider
 
@@ -98,6 +101,7 @@ public class EnemyController : MonoBehaviour
         for(int i = 0; i < startParticles.Count; ++i) {startParticles[i].Stop();}
 
         lineRenderer.enabled = false;
+        canRotate = true;
     }
 
 }
