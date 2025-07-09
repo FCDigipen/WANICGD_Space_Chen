@@ -13,11 +13,6 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player"); // finds player by player object
-
-        for(int i = 0; i < explosionVFX.transform.childCount; ++i) {
-            ParticleSystem ps = explosionVFX.transform.GetChild(i).GetComponent<ParticleSystem>();
-            if(ps) {particles.Add(ps);}
-        }
     }
 
     // Update is called once per frame
@@ -41,7 +36,10 @@ public class EnemyController : MonoBehaviour
 
     // kills the enemy
     private IEnumerator Die() {
-        for(int i = 0; i < particles.Count; ++i) {particles[i].Play();}
+        for(int i = 0; i < explosionVFX.transform.childCount; ++i) {
+            ParticleSystem ps = explosionVFX.transform.GetChild(i).GetComponent<ParticleSystem>();
+            if(ps) {ps.Play();}
+        }
         yield return new WaitForSeconds(0.4f); // s.t. particlesp lay before it kills itself
         Destroy(transform.gameObject);
     }
