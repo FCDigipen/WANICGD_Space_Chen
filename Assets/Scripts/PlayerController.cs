@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEditor.EditorTools;
 using UnityEngine;
@@ -27,11 +29,8 @@ public class Gun : MonoBehaviour
     [SerializeField] private float fireDistance;
     [Tooltip("Knockback force experienced by objects")]
     [SerializeField] private float knockback;
-    [Tooltip("Delay before reloading STARTS")]
-    [SerializeField] private float longReload;
-    [Tooltip("Delay between consecutive reloads after reloading begins")]
-    [SerializeField] private float shortReload;
-
+    [Tooltip("Delay before reloading")]
+    [SerializeField] private float reloadTime;
     private List<ParticleSystem> particles = new List<ParticleSystem>();
     private Rigidbody2D rb;
     private int chamber; // bullets in the chamber
@@ -43,7 +42,7 @@ public class Gun : MonoBehaviour
         total = maxBullets;
         chamber = maxChamber; total -= maxChamber;
         rb = GetComponent<Rigidbody2D>();
-        UpdateAmmo();
+        UpdateAmmoDisplay();
         FillLists();
         DisableLaser();
     }
@@ -105,16 +104,25 @@ public class Gun : MonoBehaviour
     }
 
     // updates ammo text
-    private void UpdateAmmo() {
+    private void UpdateAmmoDisplay() {
         ammoText.text = $"{chamber} | {total}";
     }
 
     // toggles on and off laser fast
     private IEnumerator FireLaser() {
-        --chamber; UpdateAmmo();
+        --chamber; UpdateAmmoDisplay();
         EnableLaser();
         yield return new WaitForSeconds(fireTime);
         DisableLaser();
+        if(chamber <= 0) {StartCoroutine(Reload());}
+    }
+
+    // reloads full chamber
+    private IEnumerator Reload() {
+        yield return new WaitForSeconds(reloadTime);
+        int temp = Math.Min(maxChamber, total); // don't remove more than there should
+        chamber += temp; total -= temp;
+        UpdateAmmoDisplay();
     }
 
     private void FillLists() {

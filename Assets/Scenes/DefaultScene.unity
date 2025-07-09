@@ -6007,8 +6007,7 @@ MonoBehaviour:
   fireTime: 0.15
   fireDistance: 100
   knockback: 10
-  longReload: 0.5
-  shortReload: 0.2
+  reloadTime: 2
 --- !u!1001 &1499391801
 PrefabInstance:
   m_ObjectHideFlags: 0
