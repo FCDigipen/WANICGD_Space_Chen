@@ -42,7 +42,7 @@ public class EnemyController : MonoBehaviour
     // kills the enemy
     private IEnumerator Die() {
         for(int i = 0; i < particles.Count; ++i) {particles[i].Play();}
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f); // s.t. particlesp lay before it kills itself
         Destroy(transform.gameObject);
     }
 }
