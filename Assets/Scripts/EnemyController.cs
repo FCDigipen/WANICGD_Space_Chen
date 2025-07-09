@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    [SerializeField] private int health;
     private GameObject player;
 
     // Start is called before the first frame update
@@ -23,5 +24,16 @@ public class EnemyController : MonoBehaviour
         Vector2 dir = (mousePos - (Vector2) transform.position).normalized;
         Quaternion qdir = Quaternion.LookRotation(dir, Vector3.right);
         transform.rotation = qdir * Quaternion.Euler(0,-90,0);
+    }
+
+    // processes damage (gee wonder)
+    public void Damage() {
+        --health;
+        if(health <= 0) {Die();}
+    }
+
+    // kills the enemy
+    private void Die() {
+        Debug.Log(transform.name + " needs to die");
     }
 }

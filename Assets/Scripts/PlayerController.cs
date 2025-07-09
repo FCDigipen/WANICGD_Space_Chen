@@ -81,6 +81,9 @@ public class Gun : MonoBehaviour
             // funny enough, this knock back can actually apply to the player LOL
             // i'm keeping it :)
             hit.rigidbody.AddForceAtPosition(direction * knockback, hit.point, ForceMode2D.Impulse);
+
+            EnemyController enemy = hit.collider.gameObject.GetComponent<EnemyController>();
+            if(enemy) {enemy.Damage();}
         }
         else {lineRenderer.SetPosition(1, (Vector2) firePoint.position + direction * fireDistance);}
 
