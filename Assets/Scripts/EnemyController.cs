@@ -81,7 +81,6 @@ public class EnemyController : MonoBehaviour
 
         if(hit) {
             lineRenderer.SetPosition(1, hit.point);
-            Debug.Log(hit.transform.name);
         } else {
             lineRenderer.SetPosition(1, (Vector2) firePoint.position + direction * laserDistance);
         }
