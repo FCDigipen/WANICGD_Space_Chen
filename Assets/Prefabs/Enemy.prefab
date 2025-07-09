@@ -10030,8 +10030,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46cf47555983ce947ad6555eba03ba34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
   explosionVFX: {fileID: 601211299680821539}
+  startVFX: {fileID: 1741647371050851000}
+  lineRenderer: {fileID: 2446681313371100510}
+  firePoint: {fileID: 2952473105094562523}
+  health: 1
+  cooldown: 2
+  snapDelay: 1
+  fireTime: 0.15
+  laserDistance: 1000
 --- !u!1 &5008572560854690316
 GameObject:
   m_ObjectHideFlags: 0

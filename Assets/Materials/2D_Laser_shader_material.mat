@@ -67,6 +67,6 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _LaserSpeed: {r: -1, g: 0, b: 0, a: 0}
-    - _Laser_Color: {r: 2.3903606, g: 4.2370944, b: 4.1755366, a: 1}
+    - _Laser_Color: {r: 5.3293896, g: 1.3749826, b: 1.3749826, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
