@@ -5,12 +5,19 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private int health;
+    [SerializeField] private GameObject explosionVFX;
     private GameObject player;
+    private List<ParticleSystem> particles = new List<ParticleSystem>();
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player"); // finds player by player object
+
+        for(int i = 0; i < explosionVFX.transform.childCount; ++i) {
+            ParticleSystem ps = explosionVFX.transform.GetChild(i).GetComponent<ParticleSystem>();
+            if(ps) {particles.Add(ps);}
+        }
     }
 
     // Update is called once per frame
@@ -29,11 +36,13 @@ public class EnemyController : MonoBehaviour
     // processes damage (gee wonder)
     public void Damage() {
         --health;
-        if(health <= 0) {Die();}
+        if(health <= 0) {StartCoroutine(Die());}
     }
 
     // kills the enemy
-    private void Die() {
-        Debug.Log(transform.name + " needs to die");
+    private IEnumerator Die() {
+        for(int i = 0; i < particles.Count; ++i) {particles[i].Play();}
+        yield return new WaitForSeconds(0.5f);
+        Destroy(transform.gameObject);
     }
 }
