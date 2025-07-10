@@ -527,7 +527,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1490075824}
+  m_Father: {fileID: 1650612918}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!199 &427499512
 ParticleSystemRenderer:
@@ -614,7 +614,7 @@ ParticleSystem:
   lengthInSec: 100
   simulationSpeed: 1
   stopAction: 0
-  cullingMode: 0
+  cullingMode: 1
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
@@ -686,8 +686,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 1
+      scalar: 100
+      minScalar: 20
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1174,7 +1174,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 100
+    maxNumParticles: 1000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -1234,7 +1234,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 0
+    type: 5
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -1242,7 +1242,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1, y: 1, z: 1}
+    m_Scale: {x: 100, y: 100, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -1440,7 +1440,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1000
+      scalar: 100
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -2652,7 +2652,7 @@ ParticleSystem:
     m_Curve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 999
+      scalar: 1.1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -6233,11 +6233,6 @@ PrefabInstance:
 --- !u!1 &1490075818 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 567189561811626114, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
-  m_PrefabInstance: {fileID: 6828838456322903908}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1490075824 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4172927164779238163, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
   m_PrefabInstance: {fileID: 6828838456322903908}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1553585091
@@ -11159,6 +11154,7 @@ Transform:
   - {fileID: 519420032}
   - {fileID: 1010048194}
   - {fileID: 352781034}
+  - {fileID: 427499511}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1669212686
@@ -11589,11 +11585,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4172927164779238163, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.28
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4172927164779238163, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.52
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4172927164779238163, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11657,10 +11653,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 4172927164779238163, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 427499511}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
 --- !u!1001 &7182941564845675490
