@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     [Tooltip("How long the laser lasts after firing")]
     [SerializeField] private float fireTime;
     [SerializeField] private float respawnTime;
+    [SerializeField] private float maxSpeed;
     private List<ParticleSystem> particles = new List<ParticleSystem>();
     private Rigidbody2D rb;
     private int chamber; // bullets in the chamber
@@ -59,6 +60,12 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(FireLaser());
         }
         UpdateLaser();
+    }
+
+    void FixedUpdate()
+    {
+        // clamp velocity
+        rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxSpeed);
     }
 
     // rotate player dependent on mousePos.

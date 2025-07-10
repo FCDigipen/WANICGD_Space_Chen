@@ -240,6 +240,7 @@ MonoBehaviour:
   reloadTime: 0
   fireTime: 0.15
   respawnTime: 2
+  maxSpeed: 25
 --- !u!114 &9126505836577050119
 MonoBehaviour:
   m_ObjectHideFlags: 0
