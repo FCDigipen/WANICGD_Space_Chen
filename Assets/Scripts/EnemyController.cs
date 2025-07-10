@@ -17,12 +17,13 @@ public class EnemyController : MonoBehaviour
     [Tooltip("How long the laser lasts after firing")]
     [SerializeField] private float fireTime;
     [SerializeField] private float laserDistance;
+    [SerializeField] private float randomizedDelay;
     private GameObject player;
     private List<ParticleSystem> startParticles = new List<ParticleSystem>();
     private bool canRotate = true;
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
         player = GameObject.Find("Player"); // finds player by player object
 
@@ -33,6 +34,8 @@ public class EnemyController : MonoBehaviour
         }
 
         DisableLaser();
+
+        yield return new WaitForSeconds(cooldown + UnityEngine.Random.Range(0f, randomizedDelay));
 
         StartCoroutine(FireLaser());
     }
@@ -90,7 +93,7 @@ public class EnemyController : MonoBehaviour
 
         DisableLaser();
 
-        yield return new WaitForSeconds(cooldown);
+        yield return new WaitForSeconds(cooldown + UnityEngine.Random.Range(0f, randomizedDelay));
 
         StartCoroutine(FireLaser());
     }

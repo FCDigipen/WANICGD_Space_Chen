@@ -5202,6 +5202,7 @@ MonoBehaviour:
   snapDelay: 1
   fireTime: 0.15
   laserDistance: 1000
+  randomizedDelay: 1
 --- !u!114 &4338843221695493425
 MonoBehaviour:
   m_ObjectHideFlags: 0
