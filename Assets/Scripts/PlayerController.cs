@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,14 +23,17 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Maximum bullets the player can have in the chamber")]
     [SerializeField] private int maxChamber;
     [SerializeField] public float recoil;
-    [Tooltip("How long the laser lasts after firing")]
-    [SerializeField] private float fireTime;
     [Tooltip("Laser length (visual and actual)")]
     [SerializeField] private float fireDistance;
     [Tooltip("Knockback force experienced by objects")]
     [SerializeField] private float knockback;
     [Tooltip("Delay before reloading")]
     [SerializeField] private float reloadTime;
+
+    [Header("Other")]
+    [Tooltip("How long the laser lasts after firing")]
+    [SerializeField] private float fireTime;
+    [SerializeField] private float respawnTime;
     private List<ParticleSystem> particles = new List<ParticleSystem>();
     private Rigidbody2D rb;
     private int chamber; // bullets in the chamber
@@ -137,6 +141,12 @@ public class PlayerController : MonoBehaviour
             ParticleSystem ps = endVFX.transform.GetChild(i).GetComponent<ParticleSystem>();
             if(ps) {particles.Add(ps);}
         }
+    }
+
+    public IEnumerator Damage() {
+        Destroy(gameObject);
+        yield return new WaitForSeconds(respawnTime);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 

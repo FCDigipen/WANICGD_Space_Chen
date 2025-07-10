@@ -338,11 +338,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dbf5004d631437468256a4c74d44073, type: 3}
---- !u!1 &352781033 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5233241966282973425, guid: 4a4e4376221ad2f4fb8b670d9b302ba8, type: 3}
-  m_PrefabInstance: {fileID: 7972408295259694000}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &464157719
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2510,54 +2505,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 481441206636521666, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 481441206636521666, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 481441206636521666, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 481441206636521666, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 567189561811626114, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 567189561811626114, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1030245778096095567, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1030245778096095567, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1030245778096095567, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
-      propertyPath: m_Color.r
-      value: 0.3523022
-      objectReference: {fileID: 0}
-    - target: {fileID: 1391634480438646529, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4027382243407472242, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 4168267121450197771, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4172927164779238163, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2598,38 +2553,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4944020504809152791, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5363218375247523809, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618631610971943053, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 8388046433121778700, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
       propertyPath: cam
       value: 
       objectReference: {fileID: 519420031}
     - target: {fileID: 8388046433121778700, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
-      propertyPath: endVFX
-      value: 
-      objectReference: {fileID: 352781033}
-    - target: {fileID: 8388046433121778700, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
       propertyPath: ammoText
       value: 
       objectReference: {fileID: 1271586608}
-    - target: {fileID: 8388046433121778700, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
-      propertyPath: reloadTime
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8947270167021221964, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

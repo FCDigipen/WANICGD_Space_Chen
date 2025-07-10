@@ -234,10 +234,11 @@ MonoBehaviour:
   maxBullets: 999
   maxChamber: 4
   recoil: 7.5
-  fireTime: 0.15
   fireDistance: 100
   knockback: 10
   reloadTime: 0
+  fireTime: 0.15
+  respawnTime: 2
 --- !u!114 &9126505836577050119
 MonoBehaviour:
   m_ObjectHideFlags: 0

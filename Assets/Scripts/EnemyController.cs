@@ -78,21 +78,18 @@ public class EnemyController : MonoBehaviour
     private IEnumerator FireLaser() {
         for(int i = 0; i < startParticles.Count; ++i) {startParticles[i].Play();}
         Vector2 direction = (player.transform.position - firePoint.position).normalized; // snap to location
-        RaycastHit2D hit = Physics2D.Raycast((Vector2) firePoint.position + direction * 0.05f, direction, laserDistance); // direction * 0.05f to prevent intersection with its own collider
-        if(hit && hit.collider.gameObject.GetComponent<PlayerController>() == null) {
-            telegraphLaser.SetPosition(1, hit.point);
-        } else {
-            telegraphLaser.SetPosition(1, (Vector2) firePoint.position + direction * laserDistance);
-        }
+        telegraphLaser.SetPosition(1, (Vector2) firePoint.position + direction * laserDistance);
+
         telegraphLaser.enabled = true;
         canRotate = false;
 
         yield return new WaitForSeconds(snapDelay);
 
-        hit = Physics2D.Raycast((Vector2) firePoint.position + direction * 0.05f, direction, laserDistance); // direction * 0.05f to prevent intersection with its own collider
+        RaycastHit2D hit = Physics2D.Raycast((Vector2) firePoint.position + direction * 0.05f, direction, laserDistance); // direction * 0.05f to prevent intersection with its own collider
 
         if(hit) {
             deadlyLaser.SetPosition(1, hit.point);
+            if(hit.collider.gameObject == player) {StartCoroutine(player.GetComponent<PlayerController>().Damage());}
         } else {
             deadlyLaser.SetPosition(1, (Vector2) firePoint.position + direction * laserDistance);
         }
