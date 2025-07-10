@@ -57,17 +57,16 @@ public class EnemyController : MonoBehaviour
     // processes damage (gee wonder)
     public void Damage() {
         --health;
-        if(health <= 0) {StartCoroutine(Die());}
+        if(health <= 0) {Die();}
     }
 
     // kills the enemy
-    private IEnumerator Die() {
-        for(int i = 0; i < explosionVFX.transform.childCount; ++i) {
-            ParticleSystem ps = explosionVFX.transform.GetChild(i).GetComponent<ParticleSystem>();
-            if(ps) {ps.Play();}
-        }
-        yield return new WaitForSeconds(0.4f); // s.t. particlesp lay before it kills itself
+    private void Die()
+    {
         Destroy(transform.gameObject);
+
+        GameObject spawnedParticles = Instantiate(explosionVFX, transform.position, Quaternion.identity);
+        Destroy(spawnedParticles, 2f);
     }
 
     private IEnumerator FireLaser() {
