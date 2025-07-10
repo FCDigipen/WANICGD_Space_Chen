@@ -45,7 +45,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(canRotate) {Rotate(player.transform.position);}
+        if(canRotate && player) {Rotate(player.transform.position);}
 
         // update laser locations
         deadlyLaser.SetPosition(0, firePoint.position);
