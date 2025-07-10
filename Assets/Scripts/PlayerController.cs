@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Animations;
 
-public class Gun : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Camera cam;
