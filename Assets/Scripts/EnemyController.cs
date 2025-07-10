@@ -7,7 +7,8 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] private GameObject explosionVFX;
     [SerializeField] private GameObject startVFX;
-    [SerializeField] private LineRenderer lineRenderer;
+    [SerializeField] private LineRenderer deadlyLaser;
+    [SerializeField] private LineRenderer telegraphLaser;
     public Transform firePoint;
     [Header("Gun Settings")]
     [SerializeField] private int health;
@@ -26,6 +27,7 @@ public class EnemyController : MonoBehaviour
     IEnumerator Start()
     {
         player = GameObject.Find("Player"); // finds player by player object
+        telegraphLaser.enabled = false;
 
         // init start particles
         for(int i = 0; i < startVFX.transform.childCount; ++i) {
@@ -46,7 +48,8 @@ public class EnemyController : MonoBehaviour
         if(canRotate) {Rotate(player.transform.position);}
 
         // update laser locations
-        lineRenderer.SetPosition(0, firePoint.position);
+        deadlyLaser.SetPosition(0, firePoint.position);
+        telegraphLaser.SetPosition(0, firePoint.position);
         startVFX.transform.position = (Vector2) firePoint.position;
     }
 
@@ -75,19 +78,27 @@ public class EnemyController : MonoBehaviour
     private IEnumerator FireLaser() {
         for(int i = 0; i < startParticles.Count; ++i) {startParticles[i].Play();}
         Vector2 direction = (player.transform.position - firePoint.position).normalized; // snap to location
-
+        RaycastHit2D hit = Physics2D.Raycast((Vector2) firePoint.position + direction * 0.05f, direction, laserDistance); // direction * 0.05f to prevent intersection with its own collider
+        if(hit && hit.collider.gameObject.GetComponent<PlayerController>() == null) {
+            telegraphLaser.SetPosition(1, hit.point);
+        } else {
+            telegraphLaser.SetPosition(1, (Vector2) firePoint.position + direction * laserDistance);
+        }
+        telegraphLaser.enabled = true;
         canRotate = false;
 
         yield return new WaitForSeconds(snapDelay);
-        RaycastHit2D hit = Physics2D.Raycast((Vector2) firePoint.position + direction * 0.05f, direction, laserDistance); // direction * 0.05f to prevent intersection with its own collider
+
+        hit = Physics2D.Raycast((Vector2) firePoint.position + direction * 0.05f, direction, laserDistance); // direction * 0.05f to prevent intersection with its own collider
 
         if(hit) {
-            lineRenderer.SetPosition(1, hit.point);
+            deadlyLaser.SetPosition(1, hit.point);
         } else {
-            lineRenderer.SetPosition(1, (Vector2) firePoint.position + direction * laserDistance);
+            deadlyLaser.SetPosition(1, (Vector2) firePoint.position + direction * laserDistance);
         }
 
-        lineRenderer.enabled = true;
+        telegraphLaser.enabled = false;
+        deadlyLaser.enabled = true;
 
         yield return new WaitForSeconds(fireTime);
 
@@ -101,7 +112,7 @@ public class EnemyController : MonoBehaviour
     private void DisableLaser() {
         for(int i = 0; i < startParticles.Count; ++i) {startParticles[i].Stop();}
 
-        lineRenderer.enabled = false;
+        deadlyLaser.enabled = false;
         canRotate = true;
     }
 
