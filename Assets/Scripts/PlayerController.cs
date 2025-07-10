@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public Transform firePoint;
     [SerializeField] private GameObject startVFX;
     [SerializeField] private GameObject endVFX;
+    [SerializeField] private GameObject explode;
 
     [Header("Gun Values")]
     [Tooltip("Maximum bullets the player starts off with")]
@@ -144,8 +145,10 @@ public class PlayerController : MonoBehaviour
     }
 
     public IEnumerator Damage() {
+        GameObject d = Instantiate(explode, transform.position, Quaternion.identity);
         Destroy(gameObject);
         yield return new WaitForSeconds(respawnTime);
+        Destroy(d);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

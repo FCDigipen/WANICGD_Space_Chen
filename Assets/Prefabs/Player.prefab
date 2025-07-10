@@ -231,6 +231,7 @@ MonoBehaviour:
   firePoint: {fileID: 8789895349386837200}
   startVFX: {fileID: 4168267121450197771}
   endVFX: {fileID: 5044455676798860331, guid: 7a5b31b24c466f9429f1bd479009ec3d, type: 3}
+  explode: {fileID: 8642022316202591882, guid: 397e958a3dd8c234c84dd34ea54a7657, type: 3}
   maxBullets: 999
   maxChamber: 4
   recoil: 7.5
