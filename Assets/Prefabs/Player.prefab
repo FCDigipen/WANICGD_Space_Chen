@@ -234,8 +234,8 @@ MonoBehaviour:
   explode: {fileID: 8642022316202591882, guid: 397e958a3dd8c234c84dd34ea54a7657, type: 3}
   maxBullets: 999
   maxChamber: 4
-  recoil: 7.5
-  fireDistance: 100
+  recoil: 5
+  fireDistance: 1000
   knockback: 10
   reloadTime: 0
   fireTime: 0.15
