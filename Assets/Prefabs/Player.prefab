@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4172927164779238163}
   - component: {fileID: 5575767007464863963}
   - component: {fileID: 5109739670989292781}
-  - component: {fileID: 5042082233264465047}
+  - component: {fileID: 4015012197813072403}
   - component: {fileID: 4027382243407472242}
   - component: {fileID: 8388046433121778700}
   - component: {fileID: 9126505836577050119}
@@ -104,7 +104,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -119,8 +119,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!68 &5042082233264465047
-EdgeCollider2D:
+--- !u!58 &4015012197813072403
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -151,18 +151,9 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.049885213, y: 0.009835184}
-  - {x: -0.049213048, y: 0.050886758}
-  - {x: 0.010792084, y: 0.050629575}
-  - {x: 0.010727866, y: 0.010859033}
-  - {x: -0.04927416, y: 0.011415493}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
+  m_Offset: {x: 0.00026949248, y: 0.027699709}
+  serializedVersion: 2
+  m_Radius: 0.14015873
 --- !u!114 &4027382243407472242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,14 +221,14 @@ MonoBehaviour:
   lineRenderer: {fileID: 3523363154682274775}
   firePoint: {fileID: 8789895349386837200}
   startVFX: {fileID: 4168267121450197771}
-  endVFX: {fileID: 0}
+  endVFX: {fileID: 5044455676798860331, guid: 7a5b31b24c466f9429f1bd479009ec3d, type: 3}
   maxBullets: 999
   maxChamber: 4
   recoil: 7.5
   fireTime: 0.15
   fireDistance: 100
   knockback: 10
-  reloadTime: 2
+  reloadTime: 0
 --- !u!114 &9126505836577050119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,7 +317,7 @@ GameObject:
   - component: {fileID: 1481732621014319379}
   - component: {fileID: 9085121102837689934}
   - component: {fileID: 1860536039277988827}
-  m_Layer: 1
+  m_Layer: 0
   m_Name: Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5188,13 +5179,13 @@ GameObject:
   m_Component:
   - component: {fileID: 481441206636521666}
   - component: {fileID: 1030245778096095567}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Minimap Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &481441206636521666
 Transform:
   m_ObjectHideFlags: 0
@@ -5252,7 +5243,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.18841672, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.3523022, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

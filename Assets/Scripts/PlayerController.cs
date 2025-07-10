@@ -87,7 +87,8 @@ public class PlayerController : MonoBehaviour
         else {lineRenderer.SetPosition(1, (Vector2) firePoint.position + direction * fireDistance);}
 
 
-        endVFX.transform.position = lineRenderer.GetPosition(1);
+        GameObject endVFXobj = Instantiate(endVFX, lineRenderer.GetPosition(1), Quaternion.identity);
+        Destroy(endVFXobj, fireTime);
 
         lineRenderer.enabled = true;
     }
