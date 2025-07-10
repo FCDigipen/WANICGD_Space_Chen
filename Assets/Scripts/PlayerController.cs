@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
 
 
         GameObject endVFXobj = Instantiate(endVFX, lineRenderer.GetPosition(1), Quaternion.identity);
-        Destroy(endVFXobj, fireTime);
+        Destroy(endVFXobj, 2f);
 
         lineRenderer.enabled = true;
     }
