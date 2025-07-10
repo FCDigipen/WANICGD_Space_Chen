@@ -39,5 +39,5 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - _Laser_Color: {r: 2.9803922, g: 4, b: 3.8431373, a: 1}
+    - _Laser_Color: {r: 2.6908078, g: 5.3403134, b: 1.1335572, a: 1}
   m_BuildTextureStacks: []
