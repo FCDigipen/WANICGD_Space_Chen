@@ -9861,6 +9861,7 @@ GameObject:
   - component: {fileID: 7851297132411055840}
   - component: {fileID: 8785948676066759761}
   - component: {fileID: 589015414969526619}
+  - component: {fileID: 4338843221695493425}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -10039,6 +10040,20 @@ MonoBehaviour:
   snapDelay: 1
   fireTime: 0.15
   laserDistance: 1000
+--- !u!114 &4338843221695493425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4962837414587644208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12c04e0e45bdd1d46b8bc49568243097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xBoundary: {x: -50, y: 50}
+  yBoundary: {x: -50, y: 50}
 --- !u!1 &5008572560854690316
 GameObject:
   m_ObjectHideFlags: 0
