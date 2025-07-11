@@ -2838,6 +2838,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1271586608}
     - target: {fileID: 8388046433121778700, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
+      propertyPath: maxSpeed
+      value: 17.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8388046433121778700, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
       propertyPath: LoseScreen
       value: 
       objectReference: {fileID: 1747402675}
