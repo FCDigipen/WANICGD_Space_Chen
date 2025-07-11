@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
         for(int i = 0; i < particles.Count; ++i) {particles[i].Play();}
 
         Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 direction = (mousePos - (Vector2) firePoint.position).normalized;
+        Vector2 direction = (mousePos - (Vector2) transform.position).normalized;
 
         rb.AddForce(-direction * recoil, ForceMode2D.Impulse);
 
