@@ -13,7 +13,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TimeSpan t = TimeSpan.FromSeconds(Time.timeAsDouble);
+        TimeSpan t = TimeSpan.FromSeconds(Time.timeSinceLevelLoadAsDouble);
         text.text = $"time={t.Minutes:00}:{t.Seconds:00}:{t.Milliseconds:000};";
     }
 }
