@@ -59,13 +59,13 @@ public class StateManager : MonoBehaviour
         shots.text = $"SHOTS={s}";
 
         // check if bests should be overwritten
-        if(PlayerPrefs.GetFloat("BestTime", float.MaxValue) > timeSpan.Seconds) {PlayerPrefs.SetFloat("BestTime", t);}
+        if(PlayerPrefs.GetFloat("BestTime", float.MaxValue) > t) {PlayerPrefs.SetFloat("BestTime", t);}
         if(PlayerPrefs.GetInt("BestShots", Int32.MaxValue) > s) {PlayerPrefs.SetInt("BestShots", s);}
 
         // load personal bests
-        timeSpan = TimeSpan.FromSeconds(PlayerPrefs.GetFloat("BestTime")); // overwite for copy paste :)
-        bestTime.text = $"BEST={timeSpan.Minutes:00}:{timeSpan.Seconds:00}:{timeSpan.Milliseconds:000}";
-        bestShots.text = $"BEST={PlayerPrefs.GetInt("BestShots")}";
+        TimeSpan timeSpan2 = TimeSpan.FromSeconds(PlayerPrefs.GetFloat("BestTime")); // overwite for copy paste :)
+        bestTime.text = $"BEST={timeSpan2.Minutes:00}:{timeSpan2.Seconds:00}:{timeSpan2.Milliseconds:000}";
+        bestShots.text = $"LOW={PlayerPrefs.GetInt("BestShots")}";
     }
 
     public void RestartKey(InputAction.CallbackContext ctx) {if(state == GameState.LOSING || state == GameState.WINNING) Restart();} // TODO: do people want to restart mid run?
