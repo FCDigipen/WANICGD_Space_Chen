@@ -2278,8 +2278,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoseScreen: {fileID: 1747402675}
-  WinScreen: {fileID: 0}
+  WinScreen: {fileID: 6187647064201902048}
   PauseScreen: {fileID: 0}
+  shotCounter: {fileID: 1271586606}
 --- !u!114 &1971637242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2650,6 +2651,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5406280556827511028, guid: 96e1612719e871f47b3a92f923e9b495, type: 3}
+      propertyPath: m_text
+      value: TIME=00:00:000
+      objectReference: {fileID: 0}
     - target: {fileID: 8464876031771607040, guid: 96e1612719e871f47b3a92f923e9b495, type: 3}
       propertyPath: m_Name
       value: Win Screen
@@ -2768,6 +2773,11 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3376877361386655621, guid: f1f9078cabed0724681a65a0d0f093d7, type: 3}
   m_PrefabInstance: {fileID: 5180147832897917095}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6187647064201902048 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8464876031771607040, guid: 96e1612719e871f47b3a92f923e9b495, type: 3}
+  m_PrefabInstance: {fileID: 2972395121087178476}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6828838456322903908
 PrefabInstance:

@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -21,10 +23,22 @@ public class StateManager : MonoBehaviour
     [SerializeField] private GameObject LoseScreen;
     [SerializeField] private GameObject WinScreen;
     [SerializeField] private GameObject PauseScreen;
+    [SerializeField] private GameObject shotCounter;
+
+    private TextMeshProUGUI time;
+    private TextMeshProUGUI bestTime;
+    private TextMeshProUGUI shots;
+    private TextMeshProUGUI bestShots;
 
     private void Start()
     {
-        Time.timeScale = 1;   
+        Time.timeScale = 1;
+
+        // manually iterating through children :)
+        time = WinScreen.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        bestTime = WinScreen.transform.GetChild(2).GetComponent<TextMeshProUGUI>();
+        shots = WinScreen.transform.GetChild(3).GetComponent<TextMeshProUGUI>();
+        bestShots = WinScreen.transform.GetChild(4).GetComponent<TextMeshProUGUI>();
     }
 
     public void Lose() {
@@ -33,7 +47,28 @@ public class StateManager : MonoBehaviour
         LoseScreen.SetActive(true);
     }
 
-    public void RestartKey(InputAction.CallbackContext ctx) {if(state == GameState.LOSING) Restart();} // TODO: do people want to restart mid run?
+    public void Win() {
+        Time.timeScale = 0;
+        float t = Time.timeSinceLevelLoad; // less accurate than display but shh :)
+        int s = shotCounter.GetComponent<ShotCounter>().getShots();
+        state = GameState.WINNING;
+        WinScreen.SetActive(true);
+
+        TimeSpan timeSpan = TimeSpan.FromSeconds(t);
+        time.text = $"TIME={timeSpan.Minutes:00}:{timeSpan.Seconds:00}:{timeSpan.Milliseconds:000}";
+        shots.text = $"SHOTS={s}";
+
+        // check if bests should be overwritten
+        if(PlayerPrefs.GetFloat("BestTime", float.MaxValue) > timeSpan.Seconds) {PlayerPrefs.SetFloat("BestTime", t);}
+        if(PlayerPrefs.GetInt("BestShots", Int32.MaxValue) > s) {PlayerPrefs.SetInt("BestShots", s);}
+
+        // load personal bests
+        timeSpan = TimeSpan.FromSeconds(PlayerPrefs.GetFloat("BestTime")); // overwite for copy paste :)
+        bestTime.text = $"BEST={timeSpan.Minutes:00}:{timeSpan.Seconds:00}:{timeSpan.Milliseconds:000}";
+        bestShots.text = $"BEST={PlayerPrefs.GetInt("BestShots")}";
+    }
+
+    public void RestartKey(InputAction.CallbackContext ctx) {if(state == GameState.LOSING || state == GameState.WINNING) Restart();} // TODO: do people want to restart mid run?
     public void Restart() {
         // reset this scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

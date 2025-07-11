@@ -25,6 +25,7 @@ public class EnemyCounter : MonoBehaviour
     public void RemoveEnemy() {
         --enemies;
         if(!text) {text = GetComponent<TextMeshProUGUI>();}
+        if(enemies == 0) {sm.Win();}
         text.text = $"enemies={enemies};";
     }
 }

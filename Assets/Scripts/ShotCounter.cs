@@ -9,7 +9,7 @@ public class ShotCounter : MonoBehaviour
     private int shots = 0;
     private TextMeshProUGUI text;
 
-    public int getShots {get => shots;}
+    public int getShots() {return shots;}
 
     // Start is called before the first frame update
     void Start(){text = GetComponent<TextMeshProUGUI>();}
