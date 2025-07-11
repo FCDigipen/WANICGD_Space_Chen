@@ -13,6 +13,6 @@ public class ShotCounter : MonoBehaviour
 
     // Start is called before the first frame update
     void Start(){text = GetComponent<TextMeshProUGUI>();}
-    public void UpdateShots(){++shots; text.text = $"shots={shots}";}
+    public void UpdateShots(){++shots; text.text = $"shots={shots};";}
 
 }
