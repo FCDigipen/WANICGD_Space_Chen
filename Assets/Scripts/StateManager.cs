@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class StateManager : MonoBehaviour
 {
@@ -23,5 +25,13 @@ public class StateManager : MonoBehaviour
     public void Lose() {
         state = GameState.LOSING;
         LoseScreen.SetActive(true);
+    }
+
+    public void RestartKey(InputAction.CallbackContext ctx) {Restart();}
+    public void Restart() {
+        state = GameState.PLAYING;
+
+        // reset this scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
