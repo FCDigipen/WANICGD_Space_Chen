@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject startVFX;
     [SerializeField] private GameObject endVFX;
     [SerializeField] private GameObject explode;
-    [SerializeField] private GameObject LoseScreen;
+    [SerializeField] private GameObject scene;
 
     [Header("Gun Values")]
     [Tooltip("Maximum bullets the player starts off with")]
@@ -37,8 +37,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float fireTime;
     [SerializeField] private float respawnTime;
     [SerializeField] private float maxSpeed;
+
     private List<ParticleSystem> particles = new List<ParticleSystem>();
     private Rigidbody2D rb;
+    private StateManager sm;
     private int chamber; // bullets in the chamber
     private int total; // total bullets remaining
 
@@ -47,6 +49,7 @@ public class PlayerController : MonoBehaviour
     {
         total = maxBullets;
         chamber = maxChamber; total -= maxChamber;
+        sm = scene.GetComponent<StateManager>();
         rb = GetComponent<Rigidbody2D>();
         UpdateAmmoDisplay();
         FillLists();
@@ -157,7 +160,7 @@ public class PlayerController : MonoBehaviour
         Destroy(gameObject);
         yield return new WaitForSeconds(respawnTime);
         Destroy(d);
-        LoseScreen.SetActive(true);
+        sm.Lose();
     }
 
 
