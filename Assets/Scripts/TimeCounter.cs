@@ -14,6 +14,6 @@ public class Timer : MonoBehaviour
     void Update()
     {
         TimeSpan t = TimeSpan.FromSeconds(Time.timeAsDouble);
-        text.text = $"time={t.Hours}:{t.Minutes}:{t.Seconds}:{t.Milliseconds};";
+        text.text = $"time={t.Minutes:00}:{t.Seconds:00}:{t.Milliseconds:000};";
     }
 }
