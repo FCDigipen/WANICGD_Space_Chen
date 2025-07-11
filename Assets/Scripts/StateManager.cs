@@ -68,7 +68,7 @@ public class StateManager : MonoBehaviour
         bestShots.text = $"LOW={PlayerPrefs.GetInt("BestShots")}";
     }
 
-    public void RestartKey(InputAction.CallbackContext ctx) {if(state == GameState.LOSING || state == GameState.WINNING) Restart();} // TODO: do people want to restart mid run?
+    public void RestartKey(InputAction.CallbackContext ctx) {Restart();} // TODO: do people want to restart mid run?
     public void Restart() {
         // reset this scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
