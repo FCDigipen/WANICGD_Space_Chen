@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Camera cam;
-    [SerializeField] private TextMeshProUGUI ammoText;
     public LineRenderer lineRenderer;
     public Transform firePoint;
     [SerializeField] private GameObject startVFX;
@@ -20,17 +19,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject scene;
 
     [Header("Gun Values")]
-    [Tooltip("Maximum bullets the player starts off with")]
-    [SerializeField] private int maxBullets;
-    [Tooltip("Maximum bullets the player can have in the chamber")]
-    [SerializeField] private int maxChamber;
     [SerializeField] public float recoil;
     [Tooltip("Laser length (visual and actual)")]
     [SerializeField] private float fireDistance;
     [Tooltip("Knockback force experienced by objects")]
     [SerializeField] private float knockback;
-    [Tooltip("Delay before reloading")]
-    [SerializeField] private float reloadTime;
 
     [Header("Other")]
     [Tooltip("How long the laser lasts after firing")]
@@ -41,17 +34,12 @@ public class PlayerController : MonoBehaviour
     private List<ParticleSystem> particles = new List<ParticleSystem>();
     private Rigidbody2D rb;
     private StateManager sm;
-    private int chamber; // bullets in the chamber
-    private int total; // total bullets remaining
 
     // Start is called before the first frame update
     void Start()
     {
-        total = maxBullets;
-        chamber = maxChamber; total -= maxChamber;
         sm = scene.GetComponent<StateManager>();
         rb = GetComponent<Rigidbody2D>();
-        UpdateAmmoDisplay();
         FillLists();
         DisableLaser();
     }
@@ -60,7 +48,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Rotate(cam.ScreenToWorldPoint(Input.mousePosition));
-        if(Input.GetMouseButtonDown(0) && chamber > 0) {
+        if(Input.GetMouseButtonDown(0)) {
             StartCoroutine(FireLaser());
         }
         UpdateLaser();
@@ -122,26 +110,11 @@ public class PlayerController : MonoBehaviour
         startVFX.transform.position = (Vector2) firePoint.position;
     }
 
-    // updates ammo text
-    private void UpdateAmmoDisplay() {
-        ammoText.text = $"{chamber} | {total}";
-    }
-
     // toggles on and off laser fast
     private IEnumerator FireLaser() {
-        --chamber; UpdateAmmoDisplay();
         EnableLaser();
         yield return new WaitForSeconds(fireTime);
         DisableLaser();
-        if(chamber <= 0) {StartCoroutine(Reload());}
-    }
-
-    // reloads full chamber
-    private IEnumerator Reload() {
-        yield return new WaitForSeconds(reloadTime);
-        int temp = Math.Min(maxChamber, total); // don't remove more than there should
-        chamber += temp; total -= temp;
-        UpdateAmmoDisplay();
     }
 
     private void FillLists() {
