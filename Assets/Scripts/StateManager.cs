@@ -22,8 +22,14 @@ public class StateManager : MonoBehaviour
     [SerializeField] private GameObject WinScreen;
     [SerializeField] private GameObject PauseScreen;
 
+    private void Start()
+    {
+        Time.timeScale = 1;   
+    }
+
     public void Lose() {
         state = GameState.LOSING;
+        Time.timeScale = 0; // pause the game
         LoseScreen.SetActive(true);
     }
 

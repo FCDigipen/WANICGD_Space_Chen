@@ -18,11 +18,13 @@ public class EnemyCounter : MonoBehaviour
 
     public void AddEnemy() {
         ++enemies;
+        if(!text) {text = GetComponent<TextMeshProUGUI>();}
         text.text = $"enemies={enemies};";
     }
 
     public void RemoveEnemy() {
         --enemies;
+        if(!text) {text = GetComponent<TextMeshProUGUI>();}
         text.text = $"enemies={enemies};";
     }
 }
