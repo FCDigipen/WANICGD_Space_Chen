@@ -37,7 +37,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private ShotCounter shots;
     private StateManager sm;
-    private EnemyCounter
 
     // Start is called before the first frame update
     void Start()
