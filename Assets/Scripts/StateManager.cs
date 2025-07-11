@@ -27,10 +27,8 @@ public class StateManager : MonoBehaviour
         LoseScreen.SetActive(true);
     }
 
-    public void RestartKey(InputAction.CallbackContext ctx) {Restart();}
+    public void RestartKey(InputAction.CallbackContext ctx) {if(state == GameState.LOSING) Restart();} // TODO: do people want to restart mid run?
     public void Restart() {
-        state = GameState.PLAYING;
-
         // reset this scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
