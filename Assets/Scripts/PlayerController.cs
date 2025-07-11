@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject startVFX;
     [SerializeField] private GameObject endVFX;
     [SerializeField] private GameObject explode;
+    [SerializeField] private GameObject LoseScreen;
 
     [Header("Gun Values")]
     [Tooltip("Maximum bullets the player starts off with")]
@@ -156,7 +157,7 @@ public class PlayerController : MonoBehaviour
         Destroy(gameObject);
         yield return new WaitForSeconds(respawnTime);
         Destroy(d);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        LoseScreen.SetActive(true);
     }
 
 
