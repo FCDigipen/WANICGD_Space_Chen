@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject endVFX;
     [SerializeField] private GameObject explode;
     [SerializeField] private GameObject scene;
+    [SerializeField] private GameObject ShotCounter;
 
     [Header("Gun Values")]
     [SerializeField] public float recoil;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
 
     private List<ParticleSystem> particles = new List<ParticleSystem>();
     private Rigidbody2D rb;
+    private ShotCounter shots;
     private StateManager sm;
 
     // Start is called before the first frame update
@@ -40,6 +42,7 @@ public class PlayerController : MonoBehaviour
     {
         sm = scene.GetComponent<StateManager>();
         rb = GetComponent<Rigidbody2D>();
+        shots = ShotCounter.GetComponent<ShotCounter>();
         FillLists();
         DisableLaser();
     }
@@ -69,6 +72,7 @@ public class PlayerController : MonoBehaviour
 
     // enables laser & sets fire end
     private void EnableLaser() {
+        shots.UpdateShots();
         for(int i = 0; i < particles.Count; ++i) {particles[i].Play();}
 
         Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
