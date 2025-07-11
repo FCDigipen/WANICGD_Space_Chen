@@ -2677,10 +2677,6 @@ PrefabInstance:
       propertyPath: LoseScreen
       value: 
       objectReference: {fileID: 1747402675}
-    - target: {fileID: 8388046433121778700, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
-      propertyPath: respawnTime
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

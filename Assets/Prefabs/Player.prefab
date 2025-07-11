@@ -232,6 +232,7 @@ MonoBehaviour:
   startVFX: {fileID: 4168267121450197771}
   endVFX: {fileID: 5044455676798860331, guid: 7a5b31b24c466f9429f1bd479009ec3d, type: 3}
   explode: {fileID: 8642022316202591882, guid: 397e958a3dd8c234c84dd34ea54a7657, type: 3}
+  LoseScreen: {fileID: 0}
   maxBullets: 999
   maxChamber: 4
   recoil: 5
@@ -239,7 +240,7 @@ MonoBehaviour:
   knockback: 10
   reloadTime: 0
   fireTime: 0.15
-  respawnTime: 2
+  respawnTime: 0.2
   maxSpeed: 25
 --- !u!114 &9126505836577050119
 MonoBehaviour:
