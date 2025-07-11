@@ -8,12 +8,12 @@ public class EnemyCounter : MonoBehaviour
     private int enemies = 0; // count of enmies
     private TextMeshProUGUI text;
     [SerializeField] GameObject scene;
-    SceneManager sm;
+    StateManager sm;
 
     void Start()
     {
         text = GetComponent<TextMeshProUGUI>();
-        sm = scene.GetComponent<SceneManager>();
+        sm = scene.GetComponent<StateManager>();
     }
 
     public void AddEnemy() {

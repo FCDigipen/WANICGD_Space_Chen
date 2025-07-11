@@ -20,12 +20,16 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float laserDistance;
     [SerializeField] private float randomizedDelay;
     private GameObject player;
+    private EnemyCounter ec;
     private List<ParticleSystem> startParticles = new List<ParticleSystem>();
     private bool canRotate = true;
 
     // Start is called before the first frame update
     IEnumerator Start()
-    {
+    {  
+        ec = GameObject.Find("Enemy Counter").GetComponent<EnemyCounter>();
+        ec.AddEnemy();
+
         player = GameObject.Find("Player"); // finds player by player object
         telegraphLaser.enabled = false;
 
@@ -69,6 +73,7 @@ public class EnemyController : MonoBehaviour
     // kills the enemy
     private void Die()
     {
+        ec.RemoveEnemy();
         Destroy(transform.gameObject);
 
         GameObject spawnedParticles = Instantiate(explosionVFX, transform.position, Quaternion.identity);
