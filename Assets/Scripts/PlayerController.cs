@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject explode;
     [SerializeField] private GameObject scene;
     [SerializeField] private GameObject ShotCounter;
+    [SerializeField] private GameObject EnemyCounter;
 
     [Header("Gun Values")]
     [SerializeField] public float recoil;
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private ShotCounter shots;
     private StateManager sm;
+    private EnemyCounter
 
     // Start is called before the first frame update
     void Start()

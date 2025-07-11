@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EnemyManager : MonoBehaviour
+public class EnemyCounter : MonoBehaviour
 {
     // script to manage the number of enemies and call coresponding code that relies on the number
     private int enemies = 0; // count of enmies
