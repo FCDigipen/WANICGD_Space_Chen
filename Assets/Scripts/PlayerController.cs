@@ -51,9 +51,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Rotate(cam.ScreenToWorldPoint(Input.mousePosition));
-        if(Input.GetMouseButtonDown(0)) {
-            StartCoroutine(FireLaser());
+        if (sm.getState == StateManager.GameState.PLAYING) // TODO: fix start particle beign spawned after lazer
+        {
+            Rotate(cam.ScreenToWorldPoint(Input.mousePosition));
+            if(Input.GetMouseButtonDown(0)) {
+                StartCoroutine(FireLaser());
+            }
         }
         UpdateLaser();
     }
