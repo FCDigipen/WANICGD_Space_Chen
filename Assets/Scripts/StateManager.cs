@@ -68,7 +68,25 @@ public class StateManager : MonoBehaviour
         bestShots.text = $"LOW={PlayerPrefs.GetInt("BestShots")}";
     }
 
-    public void RestartKey(InputAction.CallbackContext ctx) {Restart();} // TODO: do people want to restart mid run?
+    public void TogglePause(InputAction.CallbackContext ctx) {if(state == GameState.PLAYING) { Pause(); } else if(state == GameState.PAUSED) { Play(); }}
+    public void Pause()
+    {
+        if (state == GameState.PLAYING)
+        {
+            Time.timeScale = 0;
+            state = GameState.PAUSED;
+        }
+    }
+    public void Play()
+    {
+        if (state == GameState.PAUSED)
+        {
+            Time.timeScale = 1;
+            state = GameState.PLAYING;
+        }
+    }
+
+    public void RestartKey(InputAction.CallbackContext ctx) { Restart(); }
     public void Restart() {
         // reset this scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
