@@ -30,6 +30,11 @@ public class StateManager : MonoBehaviour
     private TextMeshProUGUI shots;
     private TextMeshProUGUI bestShots;
 
+    private void Update()
+    {
+        // Debug.Log(state);   
+    }
+
     private void Start()
     {
         Time.timeScale = 1;
@@ -75,6 +80,7 @@ public class StateManager : MonoBehaviour
         {
             Time.timeScale = 0;
             state = GameState.PAUSED;
+            PauseScreen.SetActive(true);
         }
     }
     public void Play()
@@ -83,6 +89,7 @@ public class StateManager : MonoBehaviour
         {
             Time.timeScale = 1;
             state = GameState.PLAYING;
+            PauseScreen.SetActive(false);
         }
     }
 
