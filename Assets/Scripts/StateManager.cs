@@ -30,11 +30,6 @@ public class StateManager : MonoBehaviour
     private TextMeshProUGUI shots;
     private TextMeshProUGUI bestShots;
 
-    private void Update()
-    {
-        // Debug.Log(state);   
-    }
-
     private void Start()
     {
         Time.timeScale = 1;
