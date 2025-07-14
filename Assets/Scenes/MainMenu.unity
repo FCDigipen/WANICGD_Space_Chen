@@ -289,7 +289,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &863660500
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1344,10 +1344,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 531048365}
-    - target: {fileID: 728879778400881308, guid: c2f64122e54d7384c9c9f6df1682e390, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1779833891346961315, guid: c2f64122e54d7384c9c9f6df1682e390, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1428,22 +1424,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3689809435881281889, guid: c2f64122e54d7384c9c9f6df1682e390, type: 3}
-      propertyPath: m_text
-      value: 'D-X: DEBUG LEVEL'
-      objectReference: {fileID: 0}
-    - target: {fileID: 3923110196570673061, guid: c2f64122e54d7384c9c9f6df1682e390, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7032424932329234033, guid: c2f64122e54d7384c9c9f6df1682e390, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8114550283324828918, guid: c2f64122e54d7384c9c9f6df1682e390, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8210683669005246305, guid: c2f64122e54d7384c9c9f6df1682e390, type: 3}
       propertyPath: m_Name
       value: Level D-X
@@ -1507,7 +1487,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &1779189204428471794
 CanvasRenderer:
   m_ObjectHideFlags: 0
