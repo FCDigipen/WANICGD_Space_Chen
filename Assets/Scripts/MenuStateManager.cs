@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.PackageManager;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuStateManager : MonoBehaviour
 {
@@ -42,5 +43,9 @@ public class MenuStateManager : MonoBehaviour
 
     public void Quit() {
         Application.Quit();
+    }
+
+    public void LoadScene(string scene) {
+        SceneManager.LoadScene(scene);
     }
 }
