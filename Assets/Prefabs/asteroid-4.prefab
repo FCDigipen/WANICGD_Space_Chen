@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 1236899371740806206}
   - component: {fileID: 4798185457893859109}
   - component: {fileID: -8831292333745112925}
+  - component: {fileID: 5310216907856552731}
   m_Layer: 0
   m_Name: asteroid-4
   m_TagString: Untagged
@@ -275,3 +276,16 @@ MonoBehaviour:
   max_angv: 5
   min_v: {x: -0.2, y: -0.2}
   max_v: {x: 0.2, y: 0.2}
+--- !u!114 &5310216907856552731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8258570572527083925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f65dfaa6285fbbd42acbfd99c5f6d3da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 70
