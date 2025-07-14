@@ -65,9 +65,9 @@ public class StateManager : MonoBehaviour
         if(PlayerPrefs.GetInt(levelID, 0) == 0) {PlayerPrefs.SetInt(levelID, 1);} // TODO: replace with more secure storage method
 
         // load personal bests
-        TimeSpan timeSpan2 = TimeSpan.FromSeconds(PlayerPrefs.GetFloat("BestTime")); // overwite for copy paste :)
+        TimeSpan timeSpan2 = TimeSpan.FromSeconds(PlayerPrefs.GetFloat(levelID + ":BestTime")); // overwite for copy paste :)
         bestTime.text = $"BEST={timeSpan2.Minutes:00}:{timeSpan2.Seconds:00}:{timeSpan2.Milliseconds:000}";
-        bestShots.text = $"LOW={PlayerPrefs.GetInt("BestShots")}";
+        bestShots.text = $"LOW={PlayerPrefs.GetInt(levelID + ":BestShots")}";
     }
 
     public void TogglePause(InputAction.CallbackContext ctx) {if(state == GameState.PLAYING) { Pause(); } else if(state == GameState.PAUSED) { Play(); }}
