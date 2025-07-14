@@ -239,6 +239,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4798185457893859109, guid: 2dbf5004d631437468256a4c74d44073, type: 3}
+      propertyPath: m_Mass
+      value: 29.202599
+      objectReference: {fileID: 0}
     - target: {fileID: 8258570572527083925, guid: 2dbf5004d631437468256a4c74d44073, type: 3}
       propertyPath: m_Name
       value: asteroid-2 (1)
@@ -370,6 +374,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4798185457893859109, guid: 2dbf5004d631437468256a4c74d44073, type: 3}
+      propertyPath: m_Mass
+      value: 29.202599
+      objectReference: {fileID: 0}
     - target: {fileID: 8258570572527083925, guid: 2dbf5004d631437468256a4c74d44073, type: 3}
       propertyPath: m_Name
       value: asteroid-2
@@ -496,6 +504,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4798185457893859109, guid: 2dbf5004d631437468256a4c74d44073, type: 3}
+      propertyPath: m_Mass
+      value: 29.202599
+      objectReference: {fileID: 0}
     - target: {fileID: 8258570572527083925, guid: 2dbf5004d631437468256a4c74d44073, type: 3}
       propertyPath: m_Name
       value: asteroid-2 (2)
@@ -569,6 +581,10 @@ PrefabInstance:
     - target: {fileID: 2623292047787734542, guid: abc82899b1d00e64a975b2eed5a75d0d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798185457893859109, guid: abc82899b1d00e64a975b2eed5a75d0d, type: 3}
+      propertyPath: m_Mass
+      value: 52.713398
       objectReference: {fileID: 0}
     - target: {fileID: 8258570572527083925, guid: abc82899b1d00e64a975b2eed5a75d0d, type: 3}
       propertyPath: m_Name
@@ -924,6 +940,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4798185457893859109, guid: abc82899b1d00e64a975b2eed5a75d0d, type: 3}
+      propertyPath: m_Mass
+      value: 210.85359
+      objectReference: {fileID: 0}
     - target: {fileID: 8258570572527083925, guid: abc82899b1d00e64a975b2eed5a75d0d, type: 3}
       propertyPath: m_Name
       value: asteroid-1
@@ -1106,6 +1126,10 @@ PrefabInstance:
     - target: {fileID: 2623292047787734542, guid: abc82899b1d00e64a975b2eed5a75d0d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798185457893859109, guid: abc82899b1d00e64a975b2eed5a75d0d, type: 3}
+      propertyPath: m_Mass
+      value: 52.713398
       objectReference: {fileID: 0}
     - target: {fileID: 8258570572527083925, guid: abc82899b1d00e64a975b2eed5a75d0d, type: 3}
       propertyPath: m_Name
@@ -1290,6 +1314,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4798185457893859109, guid: 27ecc7e8093abd34ab06a53652c4b364, type: 3}
+      propertyPath: m_Mass
+      value: 49.804733
+      objectReference: {fileID: 0}
     - target: {fileID: 8258570572527083925, guid: 27ecc7e8093abd34ab06a53652c4b364, type: 3}
       propertyPath: m_Name
       value: asteroid-3 (3)
@@ -1375,6 +1403,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4798185457893859109, guid: 27ecc7e8093abd34ab06a53652c4b364, type: 3}
+      propertyPath: m_Mass
+      value: 49.804733
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798185457893859109, guid: 27ecc7e8093abd34ab06a53652c4b364, type: 3}
+      propertyPath: m_UseAutoMass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8258570572527083925, guid: 27ecc7e8093abd34ab06a53652c4b364, type: 3}
       propertyPath: m_Name
       value: asteroid-3 (1)
@@ -1444,6 +1480,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4798185457893859109, guid: 27ecc7e8093abd34ab06a53652c4b364, type: 3}
+      propertyPath: m_Mass
+      value: 260.2043
+      objectReference: {fileID: 0}
     - target: {fileID: 8258570572527083925, guid: 27ecc7e8093abd34ab06a53652c4b364, type: 3}
       propertyPath: m_Name
       value: asteroid-3
@@ -1512,6 +1552,10 @@ PrefabInstance:
     - target: {fileID: 2623292047787734542, guid: 27ecc7e8093abd34ab06a53652c4b364, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798185457893859109, guid: 27ecc7e8093abd34ab06a53652c4b364, type: 3}
+      propertyPath: m_Mass
+      value: 49.804733
       objectReference: {fileID: 0}
     - target: {fileID: 8258570572527083925, guid: 27ecc7e8093abd34ab06a53652c4b364, type: 3}
       propertyPath: m_Name
@@ -1983,6 +2027,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4798185457893859109, guid: abc82899b1d00e64a975b2eed5a75d0d, type: 3}
+      propertyPath: m_Mass
+      value: 52.713398
+      objectReference: {fileID: 0}
     - target: {fileID: 8258570572527083925, guid: abc82899b1d00e64a975b2eed5a75d0d, type: 3}
       propertyPath: m_Name
       value: asteroid-1 (2)
@@ -2181,6 +2229,10 @@ PrefabInstance:
     - target: {fileID: 2623292047787734542, guid: 27ecc7e8093abd34ab06a53652c4b364, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798185457893859109, guid: 27ecc7e8093abd34ab06a53652c4b364, type: 3}
+      propertyPath: m_Mass
+      value: 49.804733
       objectReference: {fileID: 0}
     - target: {fileID: 8258570572527083925, guid: 27ecc7e8093abd34ab06a53652c4b364, type: 3}
       propertyPath: m_Name
