@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
         if (sm.getState == StateManager.GameState.PLAYING) // TODO: fix start particle beign spawned after lazer
         {
             Rotate(cam.ScreenToWorldPoint(Input.mousePosition));
-            if(Input.GetMouseButtonDown(0)) {
+            if(Input.GetMouseButtonDown(0) && sm.getState == StateManager.GameState.PLAYING) {
                 StartCoroutine(FireLaser());
             }
         }
