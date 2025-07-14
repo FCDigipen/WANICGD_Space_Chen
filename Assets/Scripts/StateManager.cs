@@ -20,6 +20,7 @@ public class StateManager : MonoBehaviour
     public GameState getState {get => state;}
 
     [Header("References")]
+    [SerializeField] public string levelID; // mucho import
     [SerializeField] private GameObject LoseScreen;
     [SerializeField] private GameObject WinScreen;
     [SerializeField] private GameObject PauseScreen;
@@ -59,8 +60,9 @@ public class StateManager : MonoBehaviour
         shots.text = $"SHOTS={s}";
 
         // check if bests should be overwritten
-        if(PlayerPrefs.GetFloat("BestTime", float.MaxValue) > t) {PlayerPrefs.SetFloat("BestTime", t);}
-        if(PlayerPrefs.GetInt("BestShots", Int32.MaxValue) > s) {PlayerPrefs.SetInt("BestShots", s);}
+        if(PlayerPrefs.GetFloat(levelID + ":BestTime", float.MaxValue) > t) {PlayerPrefs.SetFloat(levelID + ":BestTime", t);}
+        if(PlayerPrefs.GetInt(levelID + ":BestShots", Int32.MaxValue) > s) {PlayerPrefs.SetInt(levelID + ":BestShots", s);}
+        if(PlayerPrefs.GetInt(levelID, 0) == 0) {PlayerPrefs.SetInt(levelID, 1);} // TODO: replace with more secure storage method
 
         // load personal bests
         TimeSpan timeSpan2 = TimeSpan.FromSeconds(PlayerPrefs.GetFloat("BestTime")); // overwite for copy paste :)
