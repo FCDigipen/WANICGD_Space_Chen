@@ -20,6 +20,7 @@ public class MenuStateManager : MonoBehaviour
     [SerializeField] private GameObject MainMenu;
     [SerializeField] private GameObject LevelSelect;
     [SerializeField] private GameObject Settings;
+    [SerializeField] private string[] levels;
 
     public void ToLevelSelect() {
         LevelSelect.SetActive(true);
@@ -47,5 +48,14 @@ public class MenuStateManager : MonoBehaviour
 
     public void LoadScene(string scene) {
         SceneManager.LoadScene(scene);
+    }
+
+    // debug button to reset all progress
+    public void ResetProgress() {
+        for(int i = 0; i < levels.Length; ++i) {
+            PlayerPrefs.DeleteKey(levels[i] + ":BestTime");
+            PlayerPrefs.DeleteKey(levels[i] + ":BestShots");
+            PlayerPrefs.DeleteKey(levels[i]);
+        }
     }
 }
