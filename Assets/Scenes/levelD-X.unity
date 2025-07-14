@@ -2402,6 +2402,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1971637241}
+    - target: {fileID: 8079117196728233356, guid: 96e1612719e871f47b3a92f923e9b495, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: MainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 8464876031771607040, guid: 96e1612719e871f47b3a92f923e9b495, type: 3}
       propertyPath: m_Name
       value: Win Screen
