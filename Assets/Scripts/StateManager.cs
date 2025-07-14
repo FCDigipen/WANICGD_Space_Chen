@@ -98,4 +98,9 @@ public class StateManager : MonoBehaviour
         // reset this scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void QuitToMenu(string scene)
+    {
+        SceneManager.LoadScene(scene);
+    }
 }
