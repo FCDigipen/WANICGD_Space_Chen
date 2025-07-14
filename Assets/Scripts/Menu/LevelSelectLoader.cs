@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelSelectLoader : MonoBehaviour
 {
@@ -61,4 +62,9 @@ public class LevelSelectLoader : MonoBehaviour
         }
     }
 
+    public void LoadLevel() {
+        if(state != State.AccessDenied) {
+            SceneManager.LoadScene(levelID);
+        }
+    }
 }

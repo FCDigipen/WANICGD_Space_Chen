@@ -46,10 +46,6 @@ public class MenuStateManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void LoadScene(string scene) {
-        SceneManager.LoadScene(scene);
-    }
-
     // debug button to reset all progress
     public void ResetProgress() {
         for(int i = 0; i < levels.Length; ++i) {
@@ -57,5 +53,6 @@ public class MenuStateManager : MonoBehaviour
             PlayerPrefs.DeleteKey(levels[i] + ":BestShots");
             PlayerPrefs.DeleteKey(levels[i]);
         }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // restart scene
     }
 }
