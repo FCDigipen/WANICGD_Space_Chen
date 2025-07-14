@@ -37,12 +37,14 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private ShotCounter shots;
     private StateManager sm;
+    private AudioSource shootAudio;
 
     // Start is called before the first frame update
     void Start()
     {
         sm = scene.GetComponent<StateManager>();
         rb = GetComponent<Rigidbody2D>();
+        shootAudio = GetComponent<AudioSource>();
         shots = ShotCounter.GetComponent<ShotCounter>();
         FillLists();
         DisableLaser();
@@ -55,6 +57,7 @@ public class PlayerController : MonoBehaviour
         {
             Rotate(cam.ScreenToWorldPoint(Input.mousePosition));
             if(Input.GetMouseButtonDown(0) && sm.getState == StateManager.GameState.PLAYING) {
+                shootAudio.Play();
                 StartCoroutine(FireLaser());
             }
         }
