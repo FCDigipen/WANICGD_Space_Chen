@@ -2422,10 +2422,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1669212690}
     m_Modifications:
-    - target: {fileID: 3406158074089387441, guid: 96e1612719e871f47b3a92f923e9b495, type: 3}
-      propertyPath: m_text
-      value: LOW=0
-      objectReference: {fileID: 0}
+    - target: {fileID: 1787082334808245215, guid: 96e1612719e871f47b3a92f923e9b495, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1971637241}
+    - target: {fileID: 4057207799203539866, guid: 96e1612719e871f47b3a92f923e9b495, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1971637241}
     - target: {fileID: 4941056593305501874, guid: 96e1612719e871f47b3a92f923e9b495, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2506,17 +2510,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5406280556827511028, guid: 96e1612719e871f47b3a92f923e9b495, type: 3}
-      propertyPath: m_text
-      value: TIME=00:00:000
-      objectReference: {fileID: 0}
+    - target: {fileID: 8079117196728233356, guid: 96e1612719e871f47b3a92f923e9b495, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1971637241}
     - target: {fileID: 8464876031771607040, guid: 96e1612719e871f47b3a92f923e9b495, type: 3}
       propertyPath: m_Name
       value: Win Screen
-      objectReference: {fileID: 0}
-    - target: {fileID: 8464876031771607040, guid: 96e1612719e871f47b3a92f923e9b495, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
