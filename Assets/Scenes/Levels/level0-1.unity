@@ -473,6 +473,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 246217310916821379, guid: e1cad1cddd902d84eb52491207bfd4ad, type: 3}
+      propertyPath: m_Color.a
+      value: 0.09019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 246217310916821379, guid: e1cad1cddd902d84eb52491207bfd4ad, type: 3}
+      propertyPath: m_Color.g
+      value: 0.62366974
+      objectReference: {fileID: 0}
     - target: {fileID: 880861004507322881, guid: e1cad1cddd902d84eb52491207bfd4ad, type: 3}
       propertyPath: m_Name
       value: Background
@@ -496,6 +504,14 @@ PrefabInstance:
     - target: {fileID: 6037454944424695753, guid: e1cad1cddd902d84eb52491207bfd4ad, type: 3}
       propertyPath: m_LocalScale.z
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685561719998193888, guid: e1cad1cddd902d84eb52491207bfd4ad, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147849363212407016, guid: e1cad1cddd902d84eb52491207bfd4ad, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8948890699654476009, guid: e1cad1cddd902d84eb52491207bfd4ad, type: 3}
       propertyPath: m_LocalScale.x
@@ -548,6 +564,18 @@ PrefabInstance:
     - target: {fileID: 8948890699654476009, guid: e1cad1cddd902d84eb52491207bfd4ad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167904042233275606, guid: e1cad1cddd902d84eb52491207bfd4ad, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167904042233275606, guid: e1cad1cddd902d84eb52491207bfd4ad, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167904042233275606, guid: e1cad1cddd902d84eb52491207bfd4ad, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
