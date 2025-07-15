@@ -1003,4 +1003,5 @@ MonoBehaviour:
   Incomplete: {fileID: 8114550283324828918}
   BestTime: {fileID: 728879778400881308}
   BestShots: {fileID: 7032424932329234033}
+  LoadingScreen: {fileID: 1519764521130600219, guid: 7a444daa01ef7534186cf14765e40351, type: 3}
   dependencies: []

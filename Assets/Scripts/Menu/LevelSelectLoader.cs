@@ -23,6 +23,7 @@ public class LevelSelectLoader : MonoBehaviour
     [SerializeField] private GameObject Incomplete;
     [SerializeField] private GameObject BestTime;
     [SerializeField] private GameObject BestShots;
+    [SerializeField] private GameObject LoadingScreen;
     [Header("Dependencies")]
     [SerializeField] private string[] dependencies;
     private State state = State.UNDETERMINED;
@@ -64,6 +65,7 @@ public class LevelSelectLoader : MonoBehaviour
 
     public void LoadLevel() {
         if(state != State.AccessDenied) {
+            LoadingScreen.SetActive(true);
             SceneManager.LoadScene(levelID);
         }
     }
