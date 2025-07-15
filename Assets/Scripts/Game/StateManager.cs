@@ -20,20 +20,23 @@ public class StateManager : MonoBehaviour
     public GameState getState {get => state;}
 
     [Header("References")]
-    [SerializeField] public string levelID; // mucho import
+    [SerializeField] public string levelID;
     [SerializeField] private GameObject LoseScreen;
     [SerializeField] private GameObject WinScreen;
     [SerializeField] private GameObject PauseScreen;
     [SerializeField] private GameObject shotCounter;
+    [SerializeField] private GameObject deathSFXObject;
 
     private TextMeshProUGUI time;
     private TextMeshProUGUI bestTime;
     private TextMeshProUGUI shots;
     private TextMeshProUGUI bestShots;
+    private AudioSource deathSFX;
 
     private void Start()
     {
         Time.timeScale = 1;
+        deathSFX = deathSFXObject.GetComponent<AudioSource>();
 
         // manually iterating through children :)
         time = WinScreen.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
@@ -44,6 +47,7 @@ public class StateManager : MonoBehaviour
 
     public void Lose() {
         state = GameState.LOSING;
+        deathSFX.Play();
         Time.timeScale = 0; // pause the game
         LoseScreen.SetActive(true);
     }
