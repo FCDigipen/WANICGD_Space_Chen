@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject explode;
     [SerializeField] private GameObject scene;
     [SerializeField] private GameObject ShotCounter;
-    [SerializeField] private GameObject explosionSFXObject;
+    [SerializeField] private GameObject goingToExplodeSFXObject;
 
     [Header("Gun Values")]
     [SerializeField] public float recoil;
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     private ShotCounter shots;
     private StateManager sm;
     private AudioSource shootAudio;
-    private AudioSource explosionSFX;
+    private AudioSource goingToExplodeSFX;
     private bool exploding;
     private bool exploded = false;
     private float explosionTimer; // displayed on the screen
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
         sm = scene.GetComponent<StateManager>();
         rb = GetComponent<Rigidbody2D>();
         shootAudio = GetComponent<AudioSource>();
-        explosionSFX = explosionSFXObject.GetComponent<AudioSource>();
+        goingToExplodeSFX = goingToExplodeSFXObject.GetComponent<AudioSource>();
         shots = ShotCounter.GetComponent<ShotCounter>();
         FillLists();
         DisableLaser();
@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
             {
                 exploding = true;
                 explosionTimer = explosionTime;
-                explosionSFX.Play();
+                goingToExplodeSFX.Play();
 
             }
             else if (exploding)
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
                 explosionTimer -= Time.fixedDeltaTime;
                 if (explosionTimer <= 0)
                 {
-                    explosionSFX.Stop();
+                    goingToExplodeSFX.Stop();
                     exploded = true;
                     StartCoroutine(Damage()); // die
                 }
@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
             if (d <= borderRadius && !exploding)
             {// not exploding or in explosion radius
                 exploding = false;
-                explosionSFX.Stop();
+                goingToExplodeSFX.Stop();
             }
         }
     }
