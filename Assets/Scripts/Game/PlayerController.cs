@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices.WindowsRuntime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Animations;
@@ -106,7 +107,7 @@ public class PlayerController : MonoBehaviour
                     StartCoroutine(Damage()); // die
                 }
             }
-            if (d <= borderRadius && !exploding)
+            if (d <= borderRadius)
             {// not exploding or in explosion radius
                 exploding = false;
                 goingToExplodeSFX.Stop();
@@ -187,6 +188,7 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator Damage() {
         GameObject d = Instantiate(explode, transform.position, Quaternion.identity);
+        rb.velocity = Vector3.zero; // stop from moving
         exploded = true; // disable other actions
         GetComponent<Transform>().localScale = Vector3.zero; // hide
         yield return new WaitForSeconds(respawnTime);
