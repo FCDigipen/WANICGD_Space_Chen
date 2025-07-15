@@ -9,7 +9,8 @@ using UnityEngine.SceneManagement;
 public class StateManager : MonoBehaviour
 {
     // manages state of the game: winning, losing, playing, paused
-    public enum GameState {
+    public enum GameState
+    {
         WINNING,
         LOSING,
         PLAYING,
@@ -17,7 +18,7 @@ public class StateManager : MonoBehaviour
     }
 
     private GameState state = GameState.PLAYING;
-    public GameState getState {get => state;}
+    public GameState getState { get => state; }
 
     [Header("References")]
     [SerializeField] public string levelID;
@@ -45,14 +46,16 @@ public class StateManager : MonoBehaviour
         bestShots = WinScreen.transform.GetChild(4).GetComponent<TextMeshProUGUI>();
     }
 
-    public void Lose() {
+    public void Lose()
+    {
         state = GameState.LOSING;
         deathSFX.Play();
         Time.timeScale = 0; // pause the game
         LoseScreen.SetActive(true);
     }
 
-    public void Win() {
+    public void Win()
+    {
         Time.timeScale = 0;
         float t = Time.timeSinceLevelLoad; // less accurate than display but shh :)
         int s = shotCounter.GetComponent<ShotCounter>().getShots();
@@ -64,9 +67,9 @@ public class StateManager : MonoBehaviour
         shots.text = $"SHOTS={s}";
 
         // check if bests should be overwritten
-        if(PlayerPrefs.GetFloat(levelID + ":BestTime", float.MaxValue) > t) {PlayerPrefs.SetFloat(levelID + ":BestTime", t);}
-        if(PlayerPrefs.GetInt(levelID + ":BestShots", Int32.MaxValue) > s) {PlayerPrefs.SetInt(levelID + ":BestShots", s);}
-        if(PlayerPrefs.GetInt(levelID, 0) == 0) {PlayerPrefs.SetInt(levelID, 1);} // TODO: replace with more secure storage method
+        if (PlayerPrefs.GetFloat(levelID + ":BestTime", float.MaxValue) > t) { PlayerPrefs.SetFloat(levelID + ":BestTime", t); }
+        if (PlayerPrefs.GetInt(levelID + ":BestShots", Int32.MaxValue) > s) { PlayerPrefs.SetInt(levelID + ":BestShots", s); }
+        if (PlayerPrefs.GetInt(levelID, 0) == 0) { PlayerPrefs.SetInt(levelID, 1); } // TODO: replace with more secure storage method
 
         // load personal bests
         TimeSpan timeSpan2 = TimeSpan.FromSeconds(PlayerPrefs.GetFloat(levelID + ":BestTime")); // overwite for copy paste :)
@@ -74,7 +77,7 @@ public class StateManager : MonoBehaviour
         bestShots.text = $"LOW={PlayerPrefs.GetInt(levelID + ":BestShots")}";
     }
 
-    public void TogglePause(InputAction.CallbackContext ctx) {if(state == GameState.PLAYING) { Pause(); } else if(state == GameState.PAUSED) { Play(); }}
+    public void TogglePause(InputAction.CallbackContext ctx) { if (state == GameState.PLAYING) { Pause(); } else if (state == GameState.PAUSED) { Play(); } }
     public void Pause()
     {
         if (state == GameState.PLAYING)

@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject explode;
     [SerializeField] private GameObject scene;
     [SerializeField] private GameObject ShotCounter;
-    [SerializeField] private GameObject EnemyCounter;
+    [SerializeField] private GameObject explosionSFXObject;
 
     [Header("Gun Values")]
     [SerializeField] public float recoil;
@@ -32,12 +32,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float fireTime;
     [SerializeField] private float respawnTime;
     [SerializeField] private float maxSpeed;
+    [SerializeField] private float borderRadius;
+    [Tooltip("How long after leaving the border do you explode")]
+    [SerializeField] private float explosionTime;
 
     private List<ParticleSystem> particles = new List<ParticleSystem>();
     private Rigidbody2D rb;
     private ShotCounter shots;
     private StateManager sm;
     private AudioSource shootAudio;
+    private AudioSource explosionSFX;
+    private bool exploding;
+    private bool exploded = false;
+    private float explosionTimer; // displayed on the screen
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +52,7 @@ public class PlayerController : MonoBehaviour
         sm = scene.GetComponent<StateManager>();
         rb = GetComponent<Rigidbody2D>();
         shootAudio = GetComponent<AudioSource>();
+        explosionSFX = explosionSFXObject.GetComponent<AudioSource>();
         shots = ShotCounter.GetComponent<ShotCounter>();
         FillLists();
         DisableLaser();
@@ -53,7 +61,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (sm.getState == StateManager.GameState.PLAYING) // TODO: fix start particle beign spawned after lazer
+        if (sm.getState == StateManager.GameState.PLAYING && !exploded) // TODO: fix start particle beign spawned after lazer
         {
             Rotate(cam.ScreenToWorldPoint(Input.mousePosition));
             if(Input.GetMouseButtonDown(0) && sm.getState == StateManager.GameState.PLAYING) {
@@ -67,6 +75,34 @@ public class PlayerController : MonoBehaviour
     {
         // clamp velocity
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxSpeed);
+
+        // check for explosion
+        if (!exploded)
+        {
+            float d = transform.position.magnitude;
+            if (d > borderRadius && !exploding)
+            {
+                exploding = true;
+                explosionTimer = explosionTime;
+                explosionSFX.Play();
+
+            }
+            else if (exploding)
+            {
+                explosionTimer -= Time.fixedDeltaTime;
+                if (explosionTimer <= 0)
+                {
+                    explosionSFX.Stop();
+                    exploded = true;
+                    StartCoroutine(Damage()); // die
+                }
+            }
+            if (d <= borderRadius && !exploding)
+            {// not exploding or in explosion radius
+                exploding = false;
+                explosionSFX.Stop();
+            }
+        }
     }
 
     // rotate player dependent on mousePos.
@@ -141,11 +177,14 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator Damage() {
         GameObject d = Instantiate(explode, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        exploded = true; // disable other actions
+        GetComponent<Transform>().localScale = Vector3.zero; // hide
         yield return new WaitForSeconds(respawnTime);
-        Destroy(d);
         sm.Lose();
+        Destroy(d);
+        Destroy(gameObject);
     }
+    
 
 
 }
