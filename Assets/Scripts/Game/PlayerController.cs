@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
         shootAudio = GetComponent<AudioSource>();
         goingToExplodeSFX = goingToExplodeSFXObject.GetComponent<AudioSource>();
         goingToExplodeText = goingToExplodeTextObject.GetComponent<TextMeshProUGUI>();
+        goingToExplodeTextObject = goingToExplodeTextObject.transform.parent.gameObject; // supercede to get parent for wide enable
         shots = ShotCounter.GetComponent<ShotCounter>();
         FillLists();
         DisableLaser();
@@ -88,16 +89,19 @@ public class PlayerController : MonoBehaviour
                 exploding = true;
                 explosionTimer = explosionTime;
                 goingToExplodeSFX.Play();
-                goingToExplodeText.enabled = true;
+                goingToExplodeTextObject.SetActive(true);
                 TimeSpan t = TimeSpan.FromSeconds(explosionTimer);
-                goingToExplodeText.text = $"time={t.Minutes:00}:{t.Seconds:00}:{t.Milliseconds:000};";
+                goingToExplodeText.text = $"SELF DESTRUCTING IN {t.Seconds:00}.{t.Milliseconds:000};";
             }
             else if (exploding)
             {
                 explosionTimer -= Time.fixedDeltaTime;
+                TimeSpan t = TimeSpan.FromSeconds(explosionTimer);
+                goingToExplodeText.text = $"SELF DESTRUCTING IN {t.Seconds:00}.{t.Milliseconds:000};";
                 if (explosionTimer <= 0)
                 {
                     goingToExplodeSFX.Stop();
+                    goingToExplodeTextObject.SetActive(false);
                     exploded = true;
                     StartCoroutine(Damage()); // die
                 }
@@ -106,6 +110,7 @@ public class PlayerController : MonoBehaviour
             {// not exploding or in explosion radius
                 exploding = false;
                 goingToExplodeSFX.Stop();
+                goingToExplodeTextObject.SetActive(false);
             }
         }
     }
