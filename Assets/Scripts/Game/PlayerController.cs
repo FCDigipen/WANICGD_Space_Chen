@@ -57,7 +57,6 @@ public class PlayerController : MonoBehaviour
         {
             Rotate(cam.ScreenToWorldPoint(Input.mousePosition));
             if(Input.GetMouseButtonDown(0) && sm.getState == StateManager.GameState.PLAYING) {
-                shootAudio.Play();
                 StartCoroutine(FireLaser());
             }
         }
@@ -90,6 +89,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast((Vector2) firePoint.position + direction * 0.05f, direction, fireDistance); // direction * 0.05f to prevent intersection with its own collider
 
         if(hit) {
+            shootAudio.Play();
             lineRenderer.SetPosition(1, hit.point);
             // apply knockback to rigid body
             // funny enough, this knock back can actually apply to the player LOL

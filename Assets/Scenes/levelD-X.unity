@@ -2959,6 +2959,10 @@ PrefabInstance:
       propertyPath: shotCounter
       value: 
       objectReference: {fileID: 1271586606}
+    - target: {fileID: 4554786143788446883, guid: 4a4e4376221ad2f4fb8b670d9b302ba8, type: 3}
+      propertyPath: deathSFXObject
+      value: 
+      objectReference: {fileID: 7972408295259694001}
     - target: {fileID: 5322474774191029385, guid: 4a4e4376221ad2f4fb8b670d9b302ba8, type: 3}
       propertyPath: player
       value: 
@@ -2972,6 +2976,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a4e4376221ad2f4fb8b670d9b302ba8, type: 3}
+--- !u!1 &7972408295259694001 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3195957498660745586, guid: 4a4e4376221ad2f4fb8b670d9b302ba8, type: 3}
+  m_PrefabInstance: {fileID: 7972408295259694000}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
