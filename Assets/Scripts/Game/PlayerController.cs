@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject scene;
     [SerializeField] private GameObject ShotCounter;
     [SerializeField] private GameObject goingToExplodeSFXObject;
+    [SerializeField] private GameObject goingToExplodeTextObject;
 
     [Header("Gun Values")]
     [SerializeField] public float recoil;
@@ -42,6 +43,7 @@ public class PlayerController : MonoBehaviour
     private StateManager sm;
     private AudioSource shootAudio;
     private AudioSource goingToExplodeSFX;
+    private TextMeshProUGUI goingToExplodeText;
     private bool exploding;
     private bool exploded = false;
     private float explosionTimer; // displayed on the screen
@@ -53,6 +55,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         shootAudio = GetComponent<AudioSource>();
         goingToExplodeSFX = goingToExplodeSFXObject.GetComponent<AudioSource>();
+        goingToExplodeText = goingToExplodeTextObject.GetComponent<TextMeshProUGUI>();
         shots = ShotCounter.GetComponent<ShotCounter>();
         FillLists();
         DisableLaser();
@@ -85,7 +88,9 @@ public class PlayerController : MonoBehaviour
                 exploding = true;
                 explosionTimer = explosionTime;
                 goingToExplodeSFX.Play();
-
+                goingToExplodeText.enabled = true;
+                TimeSpan t = TimeSpan.FromSeconds(explosionTimer);
+                goingToExplodeText.text = $"time={t.Minutes:00}:{t.Seconds:00}:{t.Milliseconds:000};";
             }
             else if (exploding)
             {
