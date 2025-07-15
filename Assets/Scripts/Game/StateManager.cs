@@ -27,6 +27,7 @@ public class StateManager : MonoBehaviour
     [SerializeField] private GameObject PauseScreen;
     [SerializeField] private GameObject shotCounter;
     [SerializeField] private GameObject deathSFXObject;
+    [SerializeField] private float winTime;
 
     private TextMeshProUGUI time;
     private TextMeshProUGUI bestTime;
@@ -54,8 +55,10 @@ public class StateManager : MonoBehaviour
         LoseScreen.SetActive(true);
     }
 
-    public void Win()
+    public IEnumerator Win()
     {
+        Time.timeScale = 0.2f; // how slow the slow down display is
+        yield return new WaitForSeconds(winTime);
         Time.timeScale = 0;
         float t = Time.timeSinceLevelLoad; // less accurate than display but shh :)
         int s = shotCounter.GetComponent<ShotCounter>().getShots();

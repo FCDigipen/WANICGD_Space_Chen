@@ -455,6 +455,7 @@ MonoBehaviour:
   PauseScreen: {fileID: 0}
   shotCounter: {fileID: 0}
   deathSFXObject: {fileID: 3195957498660745586}
+  winTime: 0.5
 --- !u!114 &5599360726285852591
 MonoBehaviour:
   m_ObjectHideFlags: 0
