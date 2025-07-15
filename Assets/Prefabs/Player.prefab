@@ -127,11 +127,12 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.050274905, y: 0.049742002}
-  - {x: -0.05067207, y: 0.009509515}
-  - {x: 0.021014959, y: 0.009875259}
-  - {x: 0.020283446, y: 0.05010779}
-  - {x: -0.051037803, y: 0.050107785}
+  - {x: -0.06832689, y: 0.06029547}
+  - {x: -0.068724096, y: -0.021873169}
+  - {x: 0.021292694, y: -0.020118814}
+  - {x: 0.021292677, y: 0.012652488}
+  - {x: 0.020561203, y: 0.059550367}
+  - {x: -0.069645256, y: 0.060383543}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -233,13 +234,16 @@ MonoBehaviour:
   explode: {fileID: 8642022316202591882, guid: 397e958a3dd8c234c84dd34ea54a7657, type: 3}
   scene: {fileID: 0}
   ShotCounter: {fileID: 0}
-  EnemyCounter: {fileID: 0}
+  goingToExplodeSFXObject: {fileID: 0}
+  goingToExplodeTextObject: {fileID: 0}
   recoil: 5
   fireDistance: 1000
   knockback: 10
   fireTime: 0.15
   respawnTime: 0.2
   maxSpeed: 25
+  borderRadius: 0
+  explosionTime: 0
 --- !u!82 &3745246049409529546
 AudioSource:
   m_ObjectHideFlags: 0
