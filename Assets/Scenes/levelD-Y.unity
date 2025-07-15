@@ -1261,6 +1261,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abc82899b1d00e64a975b2eed5a75d0d, type: 3}
+--- !u!1 &1869554074 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1724558307455061536, guid: 4a4e4376221ad2f4fb8b670d9b302ba8, type: 3}
+  m_PrefabInstance: {fileID: 7972408295259694000}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1910821637
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1855,6 +1860,10 @@ PrefabInstance:
       propertyPath: ShotCounter
       value: 
       objectReference: {fileID: 1271586606}
+    - target: {fileID: 8388046433121778700, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
+      propertyPath: explosionSFXObject
+      value: 
+      objectReference: {fileID: 1869554074}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
