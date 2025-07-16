@@ -1639,6 +1639,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1971637241}
+    - target: {fileID: 665353309418032975, guid: b5d12f75f67f8a64096b9b90468b85c4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
     - target: {fileID: 2084539962860024580, guid: b5d12f75f67f8a64096b9b90468b85c4, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1727,6 +1731,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1971637241}
+    - target: {fileID: 3354415030956111460, guid: b5d12f75f67f8a64096b9b90468b85c4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
     - target: {fileID: 4089151053464723223, guid: b5d12f75f67f8a64096b9b90468b85c4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1739,6 +1747,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1971637241}
+    - target: {fileID: 4713894390445820249, guid: b5d12f75f67f8a64096b9b90468b85c4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
     - target: {fileID: 5284583984320611819, guid: b5d12f75f67f8a64096b9b90468b85c4, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -1752,6 +1764,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5d12f75f67f8a64096b9b90468b85c4, type: 3}
+--- !u!1 &6820753884107643302 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5284583984320611819, guid: b5d12f75f67f8a64096b9b90468b85c4, type: 3}
+  m_PrefabInstance: {fileID: 6820753884107643301}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6828838456322903908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1921,6 +1938,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scene
       objectReference: {fileID: 0}
+    - target: {fileID: 4554786143788446883, guid: 4a4e4376221ad2f4fb8b670d9b302ba8, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 6820753884107643302}
     - target: {fileID: 4554786143788446883, guid: 4a4e4376221ad2f4fb8b670d9b302ba8, type: 3}
       propertyPath: WinScreen
       value: 
