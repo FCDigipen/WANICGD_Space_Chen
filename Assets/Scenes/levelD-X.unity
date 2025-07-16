@@ -1555,11 +1555,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27ecc7e8093abd34ab06a53652c4b364, type: 3}
---- !u!1 &1326839743 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1724558307455061536, guid: 4a4e4376221ad2f4fb8b670d9b302ba8, type: 3}
-  m_PrefabInstance: {fileID: 7972408295259694000}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1344898984
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2381,11 +2376,11 @@ PrefabInstance:
     - target: {fileID: 8388046433121778700, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
       propertyPath: explosionSFXObject
       value: 
-      objectReference: {fileID: 1326839743}
+      objectReference: {fileID: 0}
     - target: {fileID: 8388046433121778700, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
       propertyPath: goingToExplodeSFXObject
       value: 
-      objectReference: {fileID: 1326839743}
+      objectReference: {fileID: 1997107266660771304, guid: 780a800c7fcc4bc4d964896c7c624511, type: 3}
     - target: {fileID: 8388046433121778700, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
       propertyPath: goingToExplodeTextObject
       value: 

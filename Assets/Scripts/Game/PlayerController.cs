@@ -43,8 +43,8 @@ public class PlayerController : MonoBehaviour
     private ShotCounter shots;
     private StateManager sm;
     private AudioSource shootAudio;
-    private AudioSource goingToExplodeSFX;
     private TextMeshProUGUI goingToExplodeText;
+    private GameObject goingToExplodeSFXInstantiated; // high quality variable names
     private bool exploding;
     private bool exploded = false;
     private float explosionTimer; // displayed on the screen
@@ -55,7 +55,6 @@ public class PlayerController : MonoBehaviour
         sm = scene.GetComponent<StateManager>();
         rb = GetComponent<Rigidbody2D>();
         shootAudio = GetComponent<AudioSource>();
-        goingToExplodeSFX = goingToExplodeSFXObject.GetComponent<AudioSource>();
         goingToExplodeText = goingToExplodeTextObject.GetComponent<TextMeshProUGUI>();
         goingToExplodeTextObject = goingToExplodeTextObject.transform.parent.gameObject; // supercede to get parent for wide enable
         shots = ShotCounter.GetComponent<ShotCounter>();
@@ -89,7 +88,7 @@ public class PlayerController : MonoBehaviour
             {
                 exploding = true;
                 explosionTimer = explosionTime;
-                goingToExplodeSFX.Play();
+                goingToExplodeSFXInstantiated = Instantiate(goingToExplodeSFXObject);
                 goingToExplodeTextObject.SetActive(true);
                 TimeSpan t = TimeSpan.FromSeconds(explosionTimer);
                 goingToExplodeText.text = $"SELF DESTRUCTING IN {t.Seconds:00}.{t.Milliseconds:000};";
@@ -101,7 +100,8 @@ public class PlayerController : MonoBehaviour
                 goingToExplodeText.text = $"SELF DESTRUCTING IN {t.Seconds:00}.{t.Milliseconds:000};";
                 if (explosionTimer <= 0)
                 {
-                    goingToExplodeSFX.Stop();
+                    // SHOULD ALWAYS EXIST BEFORE DELETION
+                    Destroy(goingToExplodeSFXInstantiated);
                     goingToExplodeTextObject.SetActive(false);
                     exploded = true;
                     StartCoroutine(Damage()); // die
@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour
             if (d <= borderRadius)
             {// not exploding or in explosion radius
                 exploding = false;
-                goingToExplodeSFX.Stop();
+                if(goingToExplodeSFXInstantiated != null) {Destroy(goingToExplodeSFXInstantiated);}
                 goingToExplodeTextObject.SetActive(false);
             }
         }
