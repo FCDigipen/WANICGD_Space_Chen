@@ -22,30 +22,19 @@ public class StateManager : MonoBehaviour
 
     [Header("References")]
     [SerializeField] public string levelID;
-    [SerializeField] private GameObject LoseScreen;
-    [SerializeField] private GameObject WinScreen;
-    [SerializeField] private GameObject PauseScreen;
-    [SerializeField] private GameObject shotCounter;
+    [SerializeField] private GameObject canvas;
     [SerializeField] private GameObject loseSFXObject; // prefab
     [SerializeField] private GameObject winSFXObject; // prefab
     [SerializeField] private float winTime;
 
-    private TextMeshProUGUI time;
-    private TextMeshProUGUI bestTime;
-    private TextMeshProUGUI shots;
-    private TextMeshProUGUI bestShots;
+    private CanvasManager cm;
     private AudioSource gpMusic;
 
     private void Start()
     {
         Time.timeScale = 1;
         gpMusic = GetComponent<AudioSource>(); // attached to this object
-
-        // manually iterating through children :)
-        time = WinScreen.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-        bestTime = WinScreen.transform.GetChild(2).GetComponent<TextMeshProUGUI>();
-        shots = WinScreen.transform.GetChild(3).GetComponent<TextMeshProUGUI>();
-        bestShots = WinScreen.transform.GetChild(4).GetComponent<TextMeshProUGUI>();
+        cm = canvas.GetComponent<CanvasManager>();
     }
 
     public void Lose()
@@ -54,7 +43,7 @@ public class StateManager : MonoBehaviour
         gpMusic.Pause();
         Destroy(Instantiate(loseSFXObject),2f); // instantiate death sfx object and delte it after two seconds, technically doesn't delete due to timescale LOL
         Time.timeScale = 0; // pause the game
-        LoseScreen.SetActive(true);
+        cm.SetLoseScreen(true);
     }
 
     public IEnumerator Win()
@@ -65,13 +54,13 @@ public class StateManager : MonoBehaviour
         Destroy(Instantiate(winSFXObject), 2f); // see loseSFX object
         Time.timeScale = 0;
         float t = Time.timeSinceLevelLoad; // less accurate than display but shh :)
-        int s = shotCounter.GetComponent<ShotCounter>().getShots();
+        int s = cm.GetShots();
         state = GameState.WINNING;
-        WinScreen.SetActive(true);
+        cm.SetWinScreen(true);
 
         TimeSpan timeSpan = TimeSpan.FromSeconds(t);
-        time.text = $"TIME={timeSpan.Minutes:00}:{timeSpan.Seconds:00}:{timeSpan.Milliseconds:000}";
-        shots.text = $"SHOTS={s}";
+        cm.SetTimeText($"TIME={timeSpan.Minutes:00}:{timeSpan.Seconds:00}:{timeSpan.Milliseconds:000}");
+        cm.SetShotsText($"SHOTS={s}");
 
         // check if bests should be overwritten
         if (PlayerPrefs.GetFloat(levelID + ":BestTime", float.MaxValue) > t) { PlayerPrefs.SetFloat(levelID + ":BestTime", t); }
@@ -80,8 +69,8 @@ public class StateManager : MonoBehaviour
 
         // load personal bests
         TimeSpan timeSpan2 = TimeSpan.FromSeconds(PlayerPrefs.GetFloat(levelID + ":BestTime")); // overwite for copy paste :)
-        bestTime.text = $"BEST={timeSpan2.Minutes:00}:{timeSpan2.Seconds:00}:{timeSpan2.Milliseconds:000}";
-        bestShots.text = $"LOW={PlayerPrefs.GetInt(levelID + ":BestShots")}";
+        cm.SetBestTimeText($"BEST={timeSpan2.Minutes:00}:{timeSpan2.Seconds:00}:{timeSpan2.Milliseconds:000}");
+        cm.SetBestShotsText($"LOW={PlayerPrefs.GetInt(levelID + ":BestShots")}");
     }
 
     public void TogglePause(InputAction.CallbackContext ctx) { if (state == GameState.PLAYING) { Pause(); } else if (state == GameState.PAUSED) { Play(); } }
@@ -93,7 +82,7 @@ public class StateManager : MonoBehaviour
             gpMusic.pitch = 0.5f; // see above
             Time.timeScale = 0;
             state = GameState.PAUSED;
-            PauseScreen.SetActive(true);
+            cm.SetPauseScreen(true);
         }
     }
     public void Play()
@@ -104,7 +93,7 @@ public class StateManager : MonoBehaviour
             gpMusic.pitch = 1f;
             Time.timeScale = 1;
             state = GameState.PLAYING;
-            PauseScreen.SetActive(false);
+            cm.SetPauseScreen(false);
         }
     }
 
