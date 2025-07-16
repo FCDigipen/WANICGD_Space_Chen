@@ -291,7 +291,8 @@ MonoBehaviour:
   WinScreen: {fileID: 0}
   PauseScreen: {fileID: 0}
   shotCounter: {fileID: 0}
-  deathSFXObject: {fileID: 0}
+  loseSFXObject: {fileID: 8248176390857317084, guid: cbf971e67814d984c9447d31981a4819, type: 3}
+  winSFXObject: {fileID: 8248176390857317084, guid: 1adafc79b43e34945ac5281bc0431e4b, type: 3}
   winTime: 0.5
 --- !u!114 &5599360726285852591
 MonoBehaviour:

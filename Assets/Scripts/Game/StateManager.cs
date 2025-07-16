@@ -27,6 +27,7 @@ public class StateManager : MonoBehaviour
     [SerializeField] private GameObject PauseScreen;
     [SerializeField] private GameObject shotCounter;
     [SerializeField] private GameObject loseSFXObject; // prefab
+    [SerializeField] private GameObject winSFXObject; // prefab
     [SerializeField] private float winTime;
 
     private TextMeshProUGUI time;
@@ -51,7 +52,7 @@ public class StateManager : MonoBehaviour
     {
         state = GameState.LOSING;
         gpMusic.Pause();
-        Destroy(Instantiate(loseSFXObject),2f); // instantiate death sfx object and delte it after two seconds
+        Destroy(Instantiate(loseSFXObject),2f); // instantiate death sfx object and delte it after two seconds, technically doesn't delete due to timescale LOL
         Time.timeScale = 0; // pause the game
         LoseScreen.SetActive(true);
     }
@@ -61,6 +62,7 @@ public class StateManager : MonoBehaviour
         gpMusic.Pause();
         Time.timeScale = 0.2f; // how slow the slow down display is
         yield return new WaitForSeconds(winTime);
+        Destroy(Instantiate(winSFXObject), 2f); // see loseSFX object
         Time.timeScale = 0;
         float t = Time.timeSinceLevelLoad; // less accurate than display but shh :)
         int s = shotCounter.GetComponent<ShotCounter>().getShots();
