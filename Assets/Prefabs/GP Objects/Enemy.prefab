@@ -5148,6 +5148,7 @@ MonoBehaviour:
   firePoint: {fileID: 2952473105094562523}
   health: 1
   cooldown: 3
+  offset: 1
   snapDelay: 2
   fireTime: 0.15
   laserDistance: 1000

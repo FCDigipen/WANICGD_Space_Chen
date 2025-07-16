@@ -14,6 +14,8 @@ public class EnemyController : MonoBehaviour
     [Header("Gun Settings")]
     [SerializeField] private int health;
     [SerializeField] private float cooldown;
+    [Tooltip("Offset from fire point to raycast")]
+    [SerializeField] private float offset;
     [Tooltip("How long after snapping to the player's location does the gun fire")]
     [SerializeField] private float snapDelay;
     [Tooltip("How long the laser lasts after firing")]
@@ -85,7 +87,7 @@ public class EnemyController : MonoBehaviour
         for(int i = 0; i < startParticles.Count; ++i) {startParticles[i].Play();}
         Vector2 direction = (player.transform.position - firePoint.position).normalized; // snap to location
 
-        RaycastHit2D hit = Physics2D.Raycast((Vector2) firePoint.position + direction * 0.05f, direction, laserDistance); // direction * 0.05f to prevent intersection with its own collider
+        RaycastHit2D hit = Physics2D.Raycast((Vector2) firePoint.position + direction * offset, direction, laserDistance); // direction * offset to prevent self-intersection
         if(hit && hit.collider.gameObject.GetComponent<PlayerController>() == null) {
             telegraphLaser.SetPosition(1, hit.point);
         } else {
@@ -97,7 +99,7 @@ public class EnemyController : MonoBehaviour
 
         yield return new WaitForSeconds(snapDelay);
 
-        hit = Physics2D.Raycast((Vector2) firePoint.position + direction * 0.05f, direction, laserDistance); // direction * 0.05f to prevent intersection with its own collider
+        hit = Physics2D.Raycast((Vector2) firePoint.position + direction * offset, direction, laserDistance); // direction * 0.05f to prevent intersection with its own collider
 
         if(hit) {
             deadlyLaser.SetPosition(1, hit.point);
