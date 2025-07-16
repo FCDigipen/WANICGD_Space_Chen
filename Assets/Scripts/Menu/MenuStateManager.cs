@@ -14,14 +14,26 @@ public class MenuStateManager : MonoBehaviour
 
     private MenuState menuState = MenuState.MAIN_MENU;
     public MenuState getMenuState {get => menuState;}
+    private AudioSource ButtonClickSFX;
 
     [Header("References")]
     [SerializeField] private GameObject MainMenu;
     [SerializeField] private GameObject LevelSelect;
     [SerializeField] private GameObject Settings;
+    [SerializeField] private GameObject ButtonClickSFXObject;
     [SerializeField] private string[] levels;
+    void Start()
+    {
+        ButtonClickSFX = ButtonClickSFXObject.GetComponent<AudioSource>();
+    }
 
-    public void ToLevelSelect() {
+    public void PlaySFX()
+    {
+        ButtonClickSFX.Play();
+    }
+
+    public void ToLevelSelect()
+    {
         LevelSelect.SetActive(true);
         MainMenu.SetActive(false);
         menuState = MenuState.LEVEL_SELECT;
