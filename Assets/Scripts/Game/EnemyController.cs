@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private GameObject explosionVFX;
+    [SerializeField] private GameObject explosionSFX;
     [SerializeField] private GameObject startVFX;
     [SerializeField] private LineRenderer deadlyLaser;
     [SerializeField] private LineRenderer telegraphLaser;
@@ -77,7 +79,9 @@ public class EnemyController : MonoBehaviour
         Destroy(transform.gameObject);
 
         GameObject spawnedParticles = Instantiate(explosionVFX, transform.position, Quaternion.identity);
+        GameObject spawnedSFX = Instantiate(explosionSFX, transform.position, Quaternion.identity);
         Destroy(spawnedParticles, 2f);
+        Destroy(spawnedSFX, 2f);
     }
 
     private IEnumerator FireLaser() {
