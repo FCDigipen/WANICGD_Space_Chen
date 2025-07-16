@@ -5145,6 +5145,7 @@ MonoBehaviour:
   startVFX: {fileID: 1741647371050851000}
   deadlyLaser: {fileID: 2446681313371100510}
   telegraphLaser: {fileID: 4269982957774817978}
+  mapIcon: {fileID: 3448388071923963915}
   firePoint: {fileID: 2952473105094562523}
   health: 1
   cooldown: 2

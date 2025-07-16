@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnemyController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private GameObject startVFX;
     [SerializeField] private LineRenderer deadlyLaser;
     [SerializeField] private LineRenderer telegraphLaser;
+    [SerializeField] private GameObject mapIcon;
     public Transform firePoint;
     [Header("Gun Settings")]
     [SerializeField] private int health;
@@ -58,6 +60,15 @@ public class EnemyController : MonoBehaviour
         deadlyLaser.SetPosition(0, firePoint.position);
         telegraphLaser.SetPosition(0, firePoint.position);
         startVFX.transform.position = (Vector2) firePoint.position;
+
+        if(player) {
+            Vector3 dir = transform.position - player.transform.position; // direction vector from player to enemy
+            if(dir.magnitude > 45f) { // camera size: make sure it stays on minimap
+                mapIcon.transform.position = player.transform.position + 45f * dir.normalized;
+            } else {
+                mapIcon.transform.position = transform.position;
+            }
+        }
     }
 
     // rotate player dependent on targetPos
