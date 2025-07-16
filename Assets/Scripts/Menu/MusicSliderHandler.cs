@@ -1,21 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class SliderHandler : MonoBehaviour
+public class MusicSliderHandler : MonoBehaviour
 {
-    [SerializeField] public string setting;
-    [SerializeField] private float defaultValue;
+    [SerializeField] private AudioMixer mixer;
     private Slider slider;
+    private string setting;
     void Start(){
         slider = GetComponentInChildren<Slider>(true);
-        slider.value = PlayerPrefs.GetFloat(setting, defaultValue);
+        setting = GetComponent<SliderHandler>().setting;
+        
         // add slider event handler
         slider.onValueChanged.AddListener(delegate {OnSliderChange();}); // delegate = function "object"
     }
 
     void OnSliderChange() {
-        PlayerPrefs.SetFloat(setting, slider.value);
+        mixer.SetFloat(setting, slider.value);
     }
 }

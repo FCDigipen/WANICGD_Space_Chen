@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class MenuStateManager : MonoBehaviour
@@ -21,9 +22,12 @@ public class MenuStateManager : MonoBehaviour
     [SerializeField] private GameObject LevelSelect;
     [SerializeField] private GameObject Settings;
     [SerializeField] private GameObject ButtonClickSFXObject;
+    [SerializeField] private AudioMixer mixer;
     [SerializeField] private string[] levels;
     void Start()
     {
+        mixer.SetFloat("sfxVolume", PlayerPrefs.GetFloat("sfxVolume", 0f));
+        mixer.SetFloat("musicVolume", PlayerPrefs.GetFloat("musicVolume", 0f));
         ButtonClickSFX = ButtonClickSFXObject.GetComponent<AudioSource>();
     }
 
