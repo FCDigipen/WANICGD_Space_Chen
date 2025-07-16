@@ -26,8 +26,8 @@ public class MenuStateManager : MonoBehaviour
     [SerializeField] private string[] levels;
     void Start()
     {
-        mixer.SetFloat("sfxVolume", PlayerPrefs.GetFloat("sfxVolume", -40f));
-        mixer.SetFloat("musicVolume", PlayerPrefs.GetFloat("musicVolume", -40f));
+        mixer.SetFloat("sfxVolume", PlayerPrefs.GetFloat("sfxVolume", 0f));
+        mixer.SetFloat("musicVolume", PlayerPrefs.GetFloat("musicVolume", 0f));
         ButtonClickSFX = ButtonClickSFXObject.GetComponent<AudioSource>();
     }
 
