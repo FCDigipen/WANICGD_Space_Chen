@@ -234,7 +234,7 @@ MonoBehaviour:
   explode: {fileID: 8642022316202591882, guid: 397e958a3dd8c234c84dd34ea54a7657, type: 3}
   scene: {fileID: 0}
   ShotCounter: {fileID: 0}
-  goingToExplodeSFXObject: {fileID: 0}
+  goingToExplodeSFXObject: {fileID: 1997107266660771304, guid: 780a800c7fcc4bc4d964896c7c624511, type: 3}
   goingToExplodeTextObject: {fileID: 0}
   recoil: 5
   fireDistance: 1000
@@ -242,8 +242,8 @@ MonoBehaviour:
   fireTime: 0.15
   respawnTime: 0.2
   maxSpeed: 25
-  borderRadius: 0
-  explosionTime: 0
+  borderRadius: 70.71
+  explosionTime: 10
 --- !u!82 &3745246049409529546
 AudioSource:
   m_ObjectHideFlags: 0
