@@ -5147,9 +5147,9 @@ MonoBehaviour:
   telegraphLaser: {fileID: 4269982957774817978}
   firePoint: {fileID: 2952473105094562523}
   health: 1
-  cooldown: 3
+  cooldown: 2
   offset: 1
-  snapDelay: 2
+  snapDelay: 1
   fireTime: 0.15
   laserDistance: 1000
   randomizedDelay: 3
