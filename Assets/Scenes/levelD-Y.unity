@@ -135,6 +135,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 665353309418032975, guid: b5d12f75f67f8a64096b9b90468b85c4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1971637244}
+    - target: {fileID: 665353309418032975, guid: b5d12f75f67f8a64096b9b90468b85c4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
     - target: {fileID: 2084539962860024580, guid: b5d12f75f67f8a64096b9b90468b85c4, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -223,15 +231,36 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 4713894390445820249, guid: b5d12f75f67f8a64096b9b90468b85c4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1971637244}
+    - target: {fileID: 4713894390445820249, guid: b5d12f75f67f8a64096b9b90468b85c4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
     - target: {fileID: 5284583984320611819, guid: b5d12f75f67f8a64096b9b90468b85c4, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055443984266387740, guid: b5d12f75f67f8a64096b9b90468b85c4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1971637244}
+    - target: {fileID: 7055443984266387740, guid: b5d12f75f67f8a64096b9b90468b85c4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5d12f75f67f8a64096b9b90468b85c4, type: 3}
+--- !u!1 &407829977 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5284583984320611819, guid: b5d12f75f67f8a64096b9b90468b85c4, type: 3}
+  m_PrefabInstance: {fileID: 407829976}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &519420031 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 3183694784701397871, guid: 4a4e4376221ad2f4fb8b670d9b302ba8, type: 3}
@@ -828,6 +857,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3119090676547273033, guid: 4a4e4376221ad2f4fb8b670d9b302ba8, type: 3}
   m_PrefabInstance: {fileID: 7972408295259694000}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1971637244 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4554786143788446883, guid: 4a4e4376221ad2f4fb8b670d9b302ba8, type: 3}
+  m_PrefabInstance: {fileID: 7972408295259694000}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971637239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 243f6788bfc338b4cbfde3ea840f3763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6828838456322903908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -953,6 +993,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scene
       objectReference: {fileID: 0}
+    - target: {fileID: 4554786143788446883, guid: 4a4e4376221ad2f4fb8b670d9b302ba8, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 407829977}
     - target: {fileID: 4554786143788446883, guid: 4a4e4376221ad2f4fb8b670d9b302ba8, type: 3}
       propertyPath: levelID
       value: levelD-Y
