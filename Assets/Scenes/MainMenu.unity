@@ -575,6 +575,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2240021474668494461, guid: b171952aa33b5bb438abe4a8b8cec6d5, type: 3}
+      propertyPath: setting
+      value: sfxVolume
+      objectReference: {fileID: 0}
     - target: {fileID: 2696890035538636378, guid: b171952aa33b5bb438abe4a8b8cec6d5, type: 3}
       propertyPath: m_Name
       value: SFX
