@@ -134,9 +134,9 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(-direction * recoil, ForceMode2D.Impulse);
 
         RaycastHit2D hit = Physics2D.Raycast((Vector2) firePoint.position + direction * 0.05f, direction, fireDistance); // direction * 0.05f to prevent intersection with its own collider
+        shootAudio.Play();
 
         if(hit) {
-            shootAudio.Play();
             lineRenderer.SetPosition(1, hit.point);
             // apply knockback to rigid body
             // funny enough, this knock back can actually apply to the player LOL
