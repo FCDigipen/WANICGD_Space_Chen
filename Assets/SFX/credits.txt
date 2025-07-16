@@ -5,4 +5,5 @@ pixel-explosion-sfx.mp3: https://pixabay.com/sound-effects/pixel-explosion-31916
 main-gp-music: https://pixabay.com/music/upbeat-z-battle-227609/
 menu-music: https://pixabay.com/music/ambient-space-ambient-351305/
 lose-sfx: https://pixabay.com/sound-effects/lose-sfx-365579/
+win-sfx: https://pixabay.com/sound-effects/win-176035/
 button-click-sfx: https://pixabay.com/sound-effects/old-radio-button-click-97549/
