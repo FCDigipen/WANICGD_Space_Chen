@@ -287,10 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelID: levelD-X
-  LoseScreen: {fileID: 0}
-  WinScreen: {fileID: 0}
-  PauseScreen: {fileID: 0}
-  shotCounter: {fileID: 0}
+  canvas: {fileID: 0}
   loseSFXObject: {fileID: 8248176390857317084, guid: cbf971e67814d984c9447d31981a4819, type: 3}
   winSFXObject: {fileID: 8248176390857317084, guid: 1adafc79b43e34945ac5281bc0431e4b, type: 3}
   winTime: 0.5
@@ -348,7 +345,7 @@ AudioSource:
   m_GameObject: {fileID: 3119090676547273033}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 1320127701331158984, guid: a80f6ee987e78774a91c2723f4e93a7a, type: 2}
   m_audioClip: {fileID: 8300000, guid: d70c22576f8962a479131a344d97f04e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.176
