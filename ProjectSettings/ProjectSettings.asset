@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: DefaultCompany
   productName: WANICGD_Space_Chen
-  defaultCursor: {fileID: 2800000, guid: 9a6ccaf45cae2114a96c41ffc00534c2, type: 3}
+  defaultCursor: {fileID: 2800000, guid: 7b9e6b4c4e6ecbb4eac01b9654243301, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
