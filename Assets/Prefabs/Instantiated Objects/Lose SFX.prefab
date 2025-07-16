@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1589717691514656329}
   - component: {fileID: 8846001076683332463}
   m_Layer: 0
-  m_Name: Death SFX
+  m_Name: Lose SFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

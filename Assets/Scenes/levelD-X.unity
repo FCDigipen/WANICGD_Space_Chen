@@ -2462,6 +2462,10 @@ PrefabInstance:
       propertyPath: shotCounter
       value: 
       objectReference: {fileID: 779844045}
+    - target: {fileID: 4554786143788446883, guid: 4a4e4376221ad2f4fb8b670d9b302ba8, type: 3}
+      propertyPath: loseSFXObject
+      value: 
+      objectReference: {fileID: 8248176390857317084, guid: cbf971e67814d984c9447d31981a4819, type: 3}
     - target: {fileID: 5322474774191029385, guid: 4a4e4376221ad2f4fb8b670d9b302ba8, type: 3}
       propertyPath: player
       value: 

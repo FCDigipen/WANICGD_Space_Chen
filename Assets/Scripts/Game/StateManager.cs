@@ -26,20 +26,18 @@ public class StateManager : MonoBehaviour
     [SerializeField] private GameObject WinScreen;
     [SerializeField] private GameObject PauseScreen;
     [SerializeField] private GameObject shotCounter;
-    [SerializeField] private GameObject deathSFXObject;
+    [SerializeField] private GameObject loseSFXObject; // prefab
     [SerializeField] private float winTime;
 
     private TextMeshProUGUI time;
     private TextMeshProUGUI bestTime;
     private TextMeshProUGUI shots;
     private TextMeshProUGUI bestShots;
-    private AudioSource deathSFX;
     private AudioSource gpMusic;
 
     private void Start()
     {
         Time.timeScale = 1;
-        deathSFX = deathSFXObject.GetComponent<AudioSource>();
         gpMusic = GetComponent<AudioSource>(); // attached to this object
 
         // manually iterating through children :)
@@ -53,7 +51,7 @@ public class StateManager : MonoBehaviour
     {
         state = GameState.LOSING;
         gpMusic.Pause();
-        deathSFX.Play();
+        Destroy(Instantiate(loseSFXObject),2f); // instantiate death sfx object and delte it after two seconds
         Time.timeScale = 0; // pause the game
         LoseScreen.SetActive(true);
     }
