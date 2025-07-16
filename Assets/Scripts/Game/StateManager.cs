@@ -103,7 +103,7 @@ public class StateManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void QuitToMenu(string scene)
+    public void LoadScene(string scene)
     {
         SceneManager.LoadScene(scene);
     }
