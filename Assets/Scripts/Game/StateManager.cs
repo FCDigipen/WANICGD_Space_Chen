@@ -34,11 +34,13 @@ public class StateManager : MonoBehaviour
     private TextMeshProUGUI shots;
     private TextMeshProUGUI bestShots;
     private AudioSource deathSFX;
+    private AudioSource gpMusic;
 
     private void Start()
     {
         Time.timeScale = 1;
         deathSFX = deathSFXObject.GetComponent<AudioSource>();
+        gpMusic = GetComponent<AudioSource>(); // attached to this object
 
         // manually iterating through children :)
         time = WinScreen.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
@@ -50,6 +52,7 @@ public class StateManager : MonoBehaviour
     public void Lose()
     {
         state = GameState.LOSING;
+        gpMusic.Pause();
         deathSFX.Play();
         Time.timeScale = 0; // pause the game
         LoseScreen.SetActive(true);
@@ -57,6 +60,7 @@ public class StateManager : MonoBehaviour
 
     public IEnumerator Win()
     {
+        gpMusic.Pause();
         Time.timeScale = 0.2f; // how slow the slow down display is
         yield return new WaitForSeconds(winTime);
         Time.timeScale = 0;
@@ -85,6 +89,8 @@ public class StateManager : MonoBehaviour
     {
         if (state == GameState.PLAYING)
         {
+            gpMusic.volume = 0.15f; // manually reduce volume. TODO: make seperate script to handle volume with changable variables
+            gpMusic.pitch = 0.5f; // see above
             Time.timeScale = 0;
             state = GameState.PAUSED;
             PauseScreen.SetActive(true);
@@ -94,6 +100,8 @@ public class StateManager : MonoBehaviour
     {
         if (state == GameState.PAUSED)
         {
+            gpMusic.volume = 0.2f; // manually reduce volume. TODO: make seperate script to handle volume with changable variables
+            gpMusic.pitch = 1f;
             Time.timeScale = 1;
             state = GameState.PLAYING;
             PauseScreen.SetActive(false);
