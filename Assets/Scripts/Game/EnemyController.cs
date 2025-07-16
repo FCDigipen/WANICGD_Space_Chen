@@ -6,8 +6,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private GameObject explosionVFX;
-    [SerializeField] private GameObject explosionSFX;
+    [SerializeField] private GameObject explosionObj;
     [SerializeField] private GameObject startVFX;
     [SerializeField] private LineRenderer deadlyLaser;
     [SerializeField] private LineRenderer telegraphLaser;
@@ -78,10 +77,8 @@ public class EnemyController : MonoBehaviour
         ec.RemoveEnemy();
         Destroy(transform.gameObject);
 
-        GameObject spawnedParticles = Instantiate(explosionVFX, transform.position, Quaternion.identity);
-        GameObject spawnedSFX = Instantiate(explosionSFX, transform.position, Quaternion.identity);
-        Destroy(spawnedParticles, 2f);
-        Destroy(spawnedSFX, 2f);
+        GameObject explosion = Instantiate(explosionObj, transform.position, Quaternion.identity); // includes sound and visual
+        Destroy(explosion, 2f);
     }
 
     private IEnumerator FireLaser() {
