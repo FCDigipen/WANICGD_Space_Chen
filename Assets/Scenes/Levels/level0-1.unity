@@ -210,6 +210,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2438253130010258652, guid: b5d12f75f67f8a64096b9b90468b85c4, type: 3}
+      propertyPath: scene
+      value: 
+      objectReference: {fileID: 1971637239}
     - target: {fileID: 4261119273064778421, guid: b5d12f75f67f8a64096b9b90468b85c4, type: 3}
       propertyPath: m_Camera
       value: 
@@ -416,6 +420,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27ecc7e8093abd34ab06a53652c4b364, type: 3}
+--- !u!1 &923544538 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5359948424980415049, guid: b5d12f75f67f8a64096b9b90468b85c4, type: 3}
+  m_PrefabInstance: {fileID: 39129635}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1490075818 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 567189561811626114, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
@@ -714,6 +723,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 806e9ac82f23a124e8cf56d9b0b49f20, type: 3}
+--- !u!1 &2009858247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 323884953492385820, guid: b5d12f75f67f8a64096b9b90468b85c4, type: 3}
+  m_PrefabInstance: {fileID: 39129635}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6828838456322903908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -793,7 +807,7 @@ PrefabInstance:
     - target: {fileID: 8388046433121778700, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
       propertyPath: ShotCounter
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 923544538}
     - target: {fileID: 8388046433121778700, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
       propertyPath: respawnTime
       value: 1
@@ -815,13 +829,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8388046433121778700, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
-      propertyPath: goingToExplodeSFXObject
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8388046433121778700, guid: ab9399dc5ed43be4b8800ae81c348fa8, type: 3}
       propertyPath: goingToExplodeTextObject
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2009858247}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
