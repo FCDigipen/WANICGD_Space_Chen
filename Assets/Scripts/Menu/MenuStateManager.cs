@@ -7,20 +7,23 @@ using UnityEngine.SceneManagement;
 
 public class MenuStateManager : MonoBehaviour
 {
-    public enum MenuState {
+    public enum MenuState
+    {
         MAIN_MENU,
         LEVEL_SELECT,
-        SETTINGS
+        SETTINGS,
+        CREDITS,
     }
 
-    private MenuState menuState = MenuState.MAIN_MENU;
-    public MenuState getMenuState {get => menuState;}
+    private MenuState state = MenuState.MAIN_MENU;
+    public MenuState getMenuState {get => state;}
     private AudioSource ButtonClickSFX;
 
     [Header("References")]
     [SerializeField] private GameObject MainMenu;
     [SerializeField] private GameObject LevelSelect;
     [SerializeField] private GameObject Settings;
+    [SerializeField] private GameObject Credits;
     [SerializeField] private GameObject ButtonClickSFXObject;
     [SerializeField] private AudioMixer mixer;
     [SerializeField] private string[] levels;
@@ -40,21 +43,30 @@ public class MenuStateManager : MonoBehaviour
     {
         LevelSelect.SetActive(true);
         MainMenu.SetActive(false);
-        menuState = MenuState.LEVEL_SELECT;
+        state = MenuState.LEVEL_SELECT;
     }
 
     public void ToSettings() {
         Settings.SetActive(true);
+        Credits.SetActive(false);
         MainMenu.SetActive(false);
-        menuState = MenuState.SETTINGS;
+        state = MenuState.SETTINGS;
     }
 
-    public void ToMainMenu() {
-        if(menuState == MenuState.LEVEL_SELECT) {LevelSelect.SetActive(false);}
-        else if(menuState == MenuState.SETTINGS) {Settings.SetActive(false);}
-        else { throw new NotImplementedException("Returning from non-impelmented scene");}
+    public void ToCredits()
+    {
+        Settings.SetActive(false);
+        Credits.SetActive(true);
+        state = MenuState.CREDITS;
+    }
+
+    public void ToMainMenu()
+    {
+        if (state == MenuState.LEVEL_SELECT) { LevelSelect.SetActive(false); }
+        else if (state == MenuState.SETTINGS) { Settings.SetActive(false); }
+        else { throw new NotImplementedException("Returning from non-impelmented scene"); }
         MainMenu.SetActive(true);
-        menuState = MenuState.MAIN_MENU;
+        state = MenuState.MAIN_MENU;
     }
 
     public void Quit() {
