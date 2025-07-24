@@ -4499,26 +4499,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 531048365}
         m_TargetAssemblyTypeName: MenuStateManager, Assembly-CSharp
-        m_MethodName: ToSettings
-        m_Mode: 1
+        m_MethodName: UIButton
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 531048365}
-        m_TargetAssemblyTypeName: MenuStateManager, Assembly-CSharp
-        m_MethodName: PlaySFX
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: SETTINGS
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!224 &5896466847371504356
@@ -4771,6 +4759,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 4190048480018263714}
     m_Modifications:
     - target: {fileID: 862255333767575183, guid: 3f2006e53ae02cf47b919da30754f2b5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 862255333767575183, guid: 3f2006e53ae02cf47b919da30754f2b5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 862255333767575183, guid: 3f2006e53ae02cf47b919da30754f2b5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 531048365}
@@ -4778,6 +4774,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 531048365}
+    - target: {fileID: 862255333767575183, guid: 3f2006e53ae02cf47b919da30754f2b5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UIButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 862255333767575183, guid: 3f2006e53ae02cf47b919da30754f2b5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuStateManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 862255333767575183, guid: 3f2006e53ae02cf47b919da30754f2b5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: LEVEL_SELECT
+      objectReference: {fileID: 0}
     - target: {fileID: 6298322656894537753, guid: 3f2006e53ae02cf47b919da30754f2b5, type: 3}
       propertyPath: m_Name
       value: Level Select

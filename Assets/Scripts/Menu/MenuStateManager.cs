@@ -38,10 +38,21 @@ public class MenuStateManager : MonoBehaviour
     [SerializeField] private GameObject Canvas; // reference to canvas for getting GUI objects
 
     /// <summary>
+    /// Map from button string input to level state.
+    /// </summary>
+    private Dictionary<string, MenuState> stringToState = new Dictionary<string, MenuState>
+    {
+        {"MAIN_MENU", MenuState.MAIN_MENU},
+        {"LEVEL_SELECT", MenuState.LEVEL_SELECT},
+        {"SETTINGS", MenuState.SETTINGS},
+        {"CREDITS", MenuState.CREDITS}
+    };
+
+    /// <summary>
     /// Map from current GameState to currently active menu object.
     /// Initalized in Start()
     /// </summary>
-    private Dictionary<MenuState, GameObject> stateToUIObject;
+    private Dictionary<MenuState, GameObject> stateToUIObject = new Dictionary<MenuState,GameObject>();
     
     /// <summary>
     /// Object with ButtonClickSFX. TODO: replace with prefab with play on awake
@@ -74,13 +85,6 @@ public class MenuStateManager : MonoBehaviour
     }
 
     /// <summary>
-    /// plays the button click sfx
-    /// </summary>
-    public void PlaySFX() { ButtonClickSFX.Play(); }
-
-
-    /// <summary>
-    /// State interface for buttons.
     /// Switches from the current state to the target MenuState
     /// </summary>
     private void SwitchToMenu(MenuState target)
@@ -91,6 +95,22 @@ public class MenuStateManager : MonoBehaviour
         // switch state and enable new ui object
         state = target;
         stateToUIObject[state].SetActive(true);
+    }
+
+    public void UIButton(string target)
+    {
+        // play clicking sfx
+        ButtonClickSFX.Play();
+        
+        // switch to the given menu if it exists
+        try
+        {
+            SwitchToMenu(stringToState[target]);
+        }
+        catch (KeyNotFoundException key)
+        {
+            throw new ArgumentException($"{key} is not a valid menu to switch to");
+        }
     }
 
     /// <summary>
