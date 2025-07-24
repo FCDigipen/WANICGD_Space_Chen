@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -37,12 +38,10 @@ public class MenuStateManager : MonoBehaviour
     [SerializeField] private GameObject Canvas; // reference to canvas for getting GUI objects
 
     /// <summary>
-    /// References to GUI objects initalized in Start()
+    /// Map from current GameState to currently active menu object.
+    /// Initalized in Start()
     /// </summary>
-    private GameObject MainMenu;
-    private GameObject LevelSelect;
-    private GameObject Settings;
-    private GameObject Credits;
+    private Dictionary<MenuState, GameObject> stateToUIObject;
     
     /// <summary>
     /// Object with ButtonClickSFX. TODO: replace with prefab with play on awake
@@ -65,10 +64,10 @@ public class MenuStateManager : MonoBehaviour
         mixer.SetFloat("musicVolume", PlayerPrefs.GetFloat("musicVolume", 0f));
 
         // get references to GUI objects
-        MainMenu = Canvas.transform.Find("Main Menu").gameObject;
-        LevelSelect = Canvas.transform.Find("Level Select").gameObject;
-        Settings = Canvas.transform.Find("Settings").gameObject;
-        Credits = Canvas.transform.Find("Credits").gameObject;
+        stateToUIObject[MenuState.MAIN_MENU] = Canvas.transform.Find("Main Menu").gameObject;
+        stateToUIObject[MenuState.LEVEL_SELECT] = Canvas.transform.Find("Level Select").gameObject;
+        stateToUIObject[MenuState.SETTINGS] = Canvas.transform.Find("Settings").gameObject;
+        stateToUIObject[MenuState.CREDITS] = Canvas.transform.Find("Credits").gameObject;
 
         // get reference to AudioSource attached to ButtonClickSFX
         ButtonClickSFX = ButtonClickSFXObject.GetComponent<AudioSource>();
@@ -81,53 +80,17 @@ public class MenuStateManager : MonoBehaviour
 
 
     /// <summary>
-    /// Switches from the main menu to the level select screen
+    /// State interface for buttons.
+    /// Switches from the current state to the target MenuState
     /// </summary>
-    public void ToLevelSelect()
+    private void SwitchToMenu(MenuState target)
     {
-        // toggle corresponding guis
-        LevelSelect.SetActive(true);
-        MainMenu.SetActive(false);
+        // disable old ui object
+        stateToUIObject[state].SetActive(false);
 
-        // switch menu state
-        state = MenuState.LEVEL_SELECT;
-    }
-
-    /// <summary>
-    /// Switches from either the main menu or the credits screen to the settings screen
-    /// Credit screen too because i was lazy
-    /// </summary>
-    public void ToSettings()
-    {
-        // toggle corresponding guis
-        Settings.SetActive(true);
-        Credits.SetActive(false);
-        MainMenu.SetActive(false);
-        state = MenuState.SETTINGS;
-    }
-
-
-    /// <summary>
-    /// Switches from the settings menu to the credits menu
-    /// </summary>
-    public void ToCredits()
-    {
-        Settings.SetActive(false);
-        Credits.SetActive(true);
-        state = MenuState.CREDITS;
-    }
-
-    /// <summary>
-    /// Switches from either the Level Select or the Settings menu to the main menu
-    /// </summary>
-    /// <exception cref="NotImplementedException"></exception>
-    public void ToMainMenu()
-    {
-        if (state == MenuState.LEVEL_SELECT) { LevelSelect.SetActive(false); }
-        else if (state == MenuState.SETTINGS) { Settings.SetActive(false); }
-        else { throw new NotImplementedException("Returning from non-impelmented scene"); }
-        MainMenu.SetActive(true);
-        state = MenuState.MAIN_MENU;
+        // switch state and enable new ui object
+        state = target;
+        stateToUIObject[state].SetActive(true);
     }
 
     /// <summary>
