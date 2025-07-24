@@ -34,13 +34,15 @@ public class MenuStateManager : MonoBehaviour
     // self explanitory
     private AudioSource ButtonClickSFX;
 
-    // TODO: get single reference to canvas, get menu children based on that
-    // currently: references to each of the different menu canvases
-    [Header("References")]
-    [SerializeField] private GameObject MainMenu;
-    [SerializeField] private GameObject LevelSelect;
-    [SerializeField] private GameObject Settings;
-    [SerializeField] private GameObject Credits;
+    [SerializeField] private GameObject Canvas; // reference to canvas for getting GUI objects
+
+    /// <summary>
+    /// References to GUI objects initalized in Start()
+    /// </summary>
+    private GameObject MainMenu;
+    private GameObject LevelSelect;
+    private GameObject Settings;
+    private GameObject Credits;
     
     /// <summary>
     /// Object with ButtonClickSFX. TODO: replace with prefab with play on awake
@@ -61,6 +63,12 @@ public class MenuStateManager : MonoBehaviour
         // set volume settings to player settings, or default max volume
         mixer.SetFloat("sfxVolume", PlayerPrefs.GetFloat("sfxVolume", 0f));
         mixer.SetFloat("musicVolume", PlayerPrefs.GetFloat("musicVolume", 0f));
+
+        // get references to GUI objects
+        MainMenu = Canvas.transform.Find("Main Menu").gameObject;
+        LevelSelect = Canvas.transform.Find("Level Select").gameObject;
+        Settings = Canvas.transform.Find("Settings").gameObject;
+        Credits = Canvas.transform.Find("Credits").gameObject;
 
         // get reference to AudioSource attached to ButtonClickSFX
         ButtonClickSFX = ButtonClickSFXObject.GetComponent<AudioSource>();
