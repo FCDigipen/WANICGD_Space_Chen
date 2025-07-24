@@ -83,7 +83,7 @@ public class MenuStateManager : MonoBehaviour
     /// State interface for buttons.
     /// Switches from the current state to the target MenuState
     /// </summary>
-    private void SwitchToMenu(MenuState target)
+    public void SwitchToMenu(MenuState target)
     {
         // disable old ui object
         stateToUIObject[state].SetActive(false);
