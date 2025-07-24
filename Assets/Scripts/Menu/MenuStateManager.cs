@@ -97,7 +97,7 @@ public class MenuStateManager : MonoBehaviour
         stateToUIObject[state].SetActive(true);
     }
 
-    public void UIButton(string target)
+    public void NavButton(string target)
     {
         // play clicking sfx
         ButtonClickSFX.Play();
